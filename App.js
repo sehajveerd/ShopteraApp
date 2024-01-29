@@ -13,7 +13,5 @@ import RecapOfPreferences from "./pages/RecapOfPreferences";
 import LegalName from "./pages/LegalName";
 
 export default function App() {
-  return <RecapOfPreferences/>;
+  return <Questionnaire2 />;
 }
-
-
