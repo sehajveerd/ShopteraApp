@@ -4,16 +4,11 @@ import SplashScreen from "./pages/SplashScreen";
 import SignUpProcess from "./pages/SignUpProcess";
 import Questionnaire from "./pages/Questionnaire";
 import WelcomeScreen from "./pages/WelcomeScreen";
+import LoginScreen from "./pages/LoginScreen";
+import NotiScreen from "./pages/NotiScreen";
 
 export default function App() {
-  return <SignUpProcess />;
+  return <WelcomeScreen />;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+
