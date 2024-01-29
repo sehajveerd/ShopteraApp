@@ -4,9 +4,11 @@ import SplashScreen from "./pages/SplashScreen";
 import SignUpProcess from "./pages/SignUpProcess";
 import Questionnaire from "./pages/Questionnaire";
 import WelcomeScreen from "./pages/WelcomeScreen";
+import RecapOfPreferences from "./pages/RecapOfPreferences";
+import LegalName from "./pages/LegalName";
 
 export default function App() {
-  return <SignUpProcess />;
+  return <LegalName/>;
 }
 
 const styles = StyleSheet.create({
