@@ -9,11 +9,17 @@
     "web": "expo start --web"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@expo/dev-server": "^0.5.5",
+=======
+    "@expo/metro-runtime": "^3.1.1",
+>>>>>>> 6be60b13122bb9877f9aac7e196728909703edd4
     "expo": "~50.0.2",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
-    "react-native": "0.73.2"
+    "react-dom": "18.2.0",
+    "react-native": "0.73.2",
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
