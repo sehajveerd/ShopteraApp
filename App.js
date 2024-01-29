@@ -7,16 +7,13 @@ import Questionnaire2 from "./pages/Questionnaire2";
 import Questionnaire3 from "./pages/Questionnaire3";
 import Questionnaire4 from "./pages/Questionnaire4";
 import WelcomeScreen from "./pages/WelcomeScreen";
+import LoginScreen from "./pages/LoginScreen";
+import NotiScreen from "./pages/NotiScreen";
+import RecapOfPreferences from "./pages/RecapOfPreferences";
+import LegalName from "./pages/LegalName";
 
 export default function App() {
-  return <SignUpProcess />;
+  return <RecapOfPreferences/>;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+
