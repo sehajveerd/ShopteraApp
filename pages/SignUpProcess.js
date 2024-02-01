@@ -13,24 +13,20 @@ const SignUpProcess = () => {
     <View style={styles.signUpProcess}>
       <View style={styles.container}>
         <Image
-          source={require("../assets/Group 2969.png")} // Assuming image is in same directory
+          source={require("../assets/Group 2969.png")}
           style={styles.group}
           alt="Group"
         />
         <View style={styles.frame}>
           <Text style={styles.letsGetStarted}>Let's Get Started!</Text>
           <Text style={styles.helpUsTailorYour}>
-            Help Us Tailor Your Investment Journey. Answer a Few Quick
-            Questions, and We'll Recommend a Personalized Plan Aligned With Your
-            Goals. Ready to Begin?
+            Help Us Tailor Your Investment Journey.{"\n"}
+            Answer a Few Quick Questions, and We'll{"\n"}
+            Recommend a Personalized Plan Aligned With{"\n"}
+            Your Goals. Ready to Begin?
           </Text>
         </View>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            /* handle button press */
-          }}
-        >
+        <TouchableOpacity style={styles.button} onPress={() => {}}>
           <Text style={styles.buttonText}>Start questionnaire</Text>
         </TouchableOpacity>
       </View>
@@ -47,8 +43,8 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: "#ffffff",
-    width: 375, // Adjust width as needed
-    height: 750, // Adjust height as needed
+    width: "100%",
+    height: "100%",
   },
   group: {
     height: 62,
@@ -62,30 +58,38 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   letsGetStarted: {
-    color: "#4c4c4c", // Replace with actual color value
-    fontSize: 24, // Adjust font size as needed
-    fontWeight: "bold", // Adjust font weight as needed
+    color: "#4c4c4c",
+    fontSize: 24,
+    fontWeight: "bold",
     textAlign: "center",
     marginBottom: 16,
   },
   helpUsTailorYour: {
-    color: "#4c4c4c", // Replace with actual color value
-    fontSize: 12, // Adjust font size as needed
+    color: "#4c4c4c",
+    fontSize: 12,
     textAlign: "center",
   },
   button: {
-    backgroundColor: "#064682", // Adjust color as needed
+    width: 320,
+    height: 54,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 8,
+    paddingBottom: 8,
+    left: 28,
+    top: 734,
+    position: "absolute",
+    backgroundColor: "#064682",
     borderRadius: 12,
-    padding: 15,
-    marginTop: 250,
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
+    display: "flex",
   },
 
   buttonText: {
-    color: "#ffffff", // Adjust text color as needed
-    fontSize: 16, // Adjust font size as needed
-    fontWeight: "bold", // Adjust font weight as needed
+    color: "#ffffff",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
 

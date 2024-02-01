@@ -7,7 +7,7 @@ const SplashScreen = () => {
       <View style={styles.innerContainer}>
         <Image
           style={styles.image}
-          source={require("../assets/Group 2971.png")} // Assuming image is in the same directory
+          source={require("../assets/Group 2971.png")}
           alt="Group"
         />
         <Text style={styles.text}>Sophtera</Text>
@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   innerContainer: {
-    backgroundColor: "#3365b6", // Assuming 'primaryblue-500' is this color
-    width: 375,
-    height: 812,
+    backgroundColor: "#3365b6",
+    width: "100%",
+    height: "100%",
   },
   image: {
     width: 197,
