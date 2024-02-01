@@ -12,7 +12,8 @@ import NotiScreen from "./pages/NotiScreen";
 import RecapOfPreferences from "./pages/RecapOfPreferences";
 import LegalName from "./pages/LegalName";
 import PhoneNumber from "./pages/PhoneNumberScreen";
+import DateOfBirth from "./pages/DateOfBirth";
 
 export default function App() {
-  return <PhoneNumber />;
+  return <DateOfBirth />;
 }
