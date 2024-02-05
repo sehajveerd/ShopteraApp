@@ -8,10 +8,9 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-const PhoneNPage = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
+const DOBPage = () => {
+  const [SSnumber, setSSnumber] = useState("");
   const handleContinue = () => {};
-
   return (
     <View style={styles.container}>
       <Image
@@ -19,29 +18,34 @@ const PhoneNPage = () => {
         style={styles.backArrow}
       />
 
-      <Text style={styles.header}>Enter your phone number</Text>
+      <Text style={styles.header}>Enter your Social Security number</Text>
       <Text style={styles.headerDescription}>
-        To enhance the security of your account and keep you informed about any
-        critical updates, kindly provide your phone number as a backup contact.
-        Please note that we'll only use it for account-related notifications and
-        not for unsolicited calls. Your privacy and security are our top
-        priorities.
+        Please provide your Social Security number to ensure compliance with
+        legal requirements.
       </Text>
 
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="000-000-0000 "
-          value={phoneNumber}
-          onChangeText={(text) => setPhoneNumber(text)}
+          placeholder="000-000-0000"
+          value={SSnumber}
+          onChangeText={(text) => setSSnumber(text)}
           keyboardType="phone-pad"
         />
       </View>
 
+      <View style={styles.NofiItem}>
+        <Image source={require("../assets/lock.png")} />
+        <Text style={styles.TextBesideImage}>
+          Your SSN will be securely encrypted and used only for account
+          verification purpose{" "}
+        </Text>
+      </View>
+
       <TouchableOpacity
-        style={phoneNumber ? styles.button : styles.disabledButton}
-        onPress={phoneNumber ? handleContinue : () => {}}
-        disabled={!phoneNumber}
+        style={SSnumber ? styles.button : styles.disabledButton}
+        onPress={SSnumber ? handleContinue : () => {}}
+        disabled={!SSnumber}
       >
         <Text style={styles.buttonText}>Continue</Text>
       </TouchableOpacity>
@@ -78,7 +82,6 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: "5%",
     marginTop: 10,
-    paddingBottom: "0%",
   },
 
   inputContainer: {
@@ -125,5 +128,23 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
   },
+
+  NofiItem: {
+    backgroundColor: "#DCDDE0",
+    padding: 20,
+    paddingLeft: 5,
+    paddingRight: 5,
+    width: "90%",
+    paddingHorizontal: "5%",
+    alignSelf: "center",
+    flexDirection: "row",
+  },
+
+  TextBesideImage: {
+    marginLeft: 5, // Adjust the margin as needed to create space between image and text
+    marginRight: 40,
+    fontSize: 12, // Adjust the font size based on your design
+    color: "black", // Adjust the text color based on your design
+  },
 });
-export default PhoneNPage;
+export default DOBPage;
