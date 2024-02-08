@@ -14,6 +14,8 @@ import LegalName from "./pages/LegalName";
 import Residence from "./pages/Residence";
 import PhoneNumber from "./pages/PhoneNumberScreen";
 import DateOfBirth from "./pages/DateOfBirth";
+import NetWorth from "./pages/NetWorthScreen";
+import SSN from "./pages/SSNSCreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
