@@ -11,6 +11,7 @@ import LoginScreen from "./pages/LoginScreen";
 import NotiScreen from "./pages/NotiScreen";
 import RecapOfPreferences from "./pages/RecapOfPreferences";
 import LegalName from "./pages/LegalName";
+import Residence from "./pages/Residence";
 import PhoneNumber from "./pages/PhoneNumberScreen";
 import DateOfBirth from "./pages/DateOfBirth";
 import { NavigationContainer } from "@react-navigation/native";
