@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { COLORS } from "./Colors.js";
 
-const Questionnaire4 = () => {
+const Stack = createNativeStackNavigator();
+
+const Questionnaire4 = ({ navigation }) => {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+  };
   return (
     <View
       style={{
@@ -41,7 +51,7 @@ const Questionnaire4 = () => {
       >
         <Text
           style={{
-            color: "#27476E",
+            color: COLORS.primary,
             fontSize: 24,
             fontFamily: "Red Hat Display",
             fontWeight: "700",
@@ -54,16 +64,15 @@ const Questionnaire4 = () => {
         </Text>
       </View>
 
-      <Image
-        source={require("../assets/BackArrow.png")}
-        style={{
-          width: 16,
-          height: 16,
-          left: 33,
-          top: 58,
-          position: "absolute",
-        }}
-      />
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Q3")}
+        style={{ position: "absolute", left: 33, top: 58 }}
+      >
+        <Image
+          source={require("../assets/BackArrow.png")}
+          style={{ width: 16, height: 16 }}
+        />
+      </TouchableOpacity>
 
       <View style={styles.container}>
         <View style={styles.section}>
@@ -107,7 +116,9 @@ const Questionnaire4 = () => {
       </View>
 
       <TouchableOpacity style={styles.button} onPress={() => {}}>
-        <Text style={styles.buttonText}>Continue</Text>
+        <Text style={[styles.buttonText, selectedOption && { color: "white" }]}>
+          Continue
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -140,7 +151,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
   title: {
-    color: "#484848",
+    color: COLORS.textColor,
     fontSize: 14,
     fontFamily: "Poppins",
     fontWeight: "700",
@@ -150,7 +161,7 @@ const styles = StyleSheet.create({
   subtitle: {
     // Add the content one the figma designs are ready
     width: "90%",
-    color: "#484848",
+    color: COLORS.textColor,
     fontSize: 12,
     fontFamily: "Poppins",
     fontWeight: "400",
@@ -163,14 +174,14 @@ const styles = StyleSheet.create({
     top: 20,
     right: 20,
     borderRadius: 9999,
-    borderColor: "#484848",
+    borderColor: COLORS.textColor,
     borderWidth: 1,
   },
   border: {
     top: 0,
     alignSelf: "stretch",
     height: 0,
-    borderColor: "#DDEFFF",
+    borderColor: COLORS.secondary,
     borderWidth: 1,
   },
   button: {

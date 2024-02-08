@@ -1,7 +1,25 @@
-import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Font,
+} from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { COLORS } from "./Colors.js";
 
-const Questionnaire1 = () => {
+const Stack = createNativeStackNavigator();
+
+const Questionnaire1 = ({ navigation }) => {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+  };
+
   return (
     <View
       style={{
@@ -18,7 +36,7 @@ const Questionnaire1 = () => {
           left: 0,
           top: 0,
           position: "absolute",
-          backgroundColor: "#DDEFFF",
+          backgroundColor: COLORS.secondary,
           borderTopLeftRadius: 14,
           borderTopRightRadius: 14,
         }}
@@ -41,7 +59,7 @@ const Questionnaire1 = () => {
       >
         <Text
           style={{
-            color: "#27476E",
+            color: COLORS.primary,
             fontSize: 24,
             fontFamily: "Red Hat Display",
             fontWeight: "700",
@@ -54,19 +72,21 @@ const Questionnaire1 = () => {
         </Text>
       </View>
 
-      <Image
-        source={require("../assets/BackArrow.png")}
-        style={{
-          width: 16,
-          height: 16,
-          left: 33,
-          top: 58,
-          position: "absolute",
-        }}
-      />
+      <TouchableOpacity
+        onPress={() => navigation.navigate("SignUpProcess")}
+        style={{ position: "absolute", left: 33, top: 58 }}
+      >
+        <Image
+          source={require("../assets/BackArrow.png")}
+          style={{ width: 16, height: 16 }}
+        />
+      </TouchableOpacity>
 
       <View style={styles.container}>
-        <View style={styles.section}>
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => handleOptionSelect("Diverse Investment Opportunities")}
+        >
           <View style={styles.content}>
             <Text style={styles.title}>Diverse Investment Opportunities</Text>
             <Text style={styles.subtitle}>
@@ -74,24 +94,46 @@ const Questionnaire1 = () => {
               portfolio.
             </Text>
           </View>
-          <View style={styles.circle} />
-        </View>
+          <View
+            style={[
+              styles.circle,
+              selectedOption === "Diverse Investment Opportunities" && {
+                backgroundColor: COLORS.primary,
+              },
+            ]}
+          />
+        </TouchableOpacity>
         <View style={styles.border} />
       </View>
+
       <View style={styles.container}>
-        <View style={styles.section}>
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => handleOptionSelect("Competitive Returns")}
+        >
           <View style={styles.content}>
             <Text style={styles.title}>Competitive Returns</Text>
             <Text style={styles.subtitle}>
               Earn competitive returns on your investments with Sophtera.
             </Text>
           </View>
-          <View style={styles.circle} />
-        </View>
+          <View
+            style={[
+              styles.circle,
+              selectedOption === "Competitive Returns" && {
+                backgroundColor: COLORS.primary,
+              },
+            ]}
+          />
+        </TouchableOpacity>
         <View style={styles.border} />
       </View>
+
       <View style={styles.container}>
-        <View style={styles.section}>
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => handleOptionSelect("Property Ownership")}
+        >
           <View style={styles.content}>
             <Text style={styles.title}>Property Ownership</Text>
             <Text style={styles.subtitle}>
@@ -99,25 +141,57 @@ const Questionnaire1 = () => {
               investments.
             </Text>
           </View>
-          <View style={styles.circle} />
-        </View>
+          <View
+            style={[
+              styles.circle,
+              selectedOption === "Property Ownership" && {
+                backgroundColor: COLORS.primary,
+              },
+            ]}
+          />
+        </TouchableOpacity>
         <View style={styles.border} />
       </View>
+
       <View style={styles.container}>
-        <View style={styles.section}>
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => handleOptionSelect("Learn")}
+        >
           <View style={styles.content}>
             <Text style={styles.title}>Learn</Text>
             <Text style={styles.subtitle}>
               I want to be a real-estate investor and start with Sophtera
             </Text>
           </View>
-          <View style={styles.circle} />
-        </View>
+          <View
+            style={[
+              styles.circle,
+              selectedOption === "Learn" && {
+                backgroundColor: COLORS.primary,
+              },
+            ]}
+          />
+        </TouchableOpacity>
         <View style={styles.border} />
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
-        <Text style={styles.buttonText}>Continue</Text>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          selectedOption && { backgroundColor: COLORS.primary },
+        ]}
+        onPress={() => {
+          if (selectedOption) {
+            // Do something with the selectedOption
+            console.log("Selected Option:", selectedOption);
+            navigation.navigate("Q2");
+          }
+        }}
+      >
+        <Text style={[styles.buttonText, selectedOption && { color: "white" }]}>
+          Continue
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -150,7 +224,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
   title: {
-    color: "#484848",
+    color: COLORS.textColor,
     fontSize: 14,
     fontFamily: "Poppins",
     fontWeight: "400",
@@ -159,7 +233,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     width: "90%",
-    color: "#484848",
+    color: COLORS.textColor,
     fontSize: 12,
     fontFamily: "Poppins",
     fontWeight: "400",
@@ -167,19 +241,19 @@ const styles = StyleSheet.create({
     wordWrap: "break-word",
   },
   circle: {
-    width: 16,
-    height: 16,
+    width: 15,
+    height: 15,
     top: 28,
     right: 20,
     borderRadius: 9999,
-    borderColor: "#484848",
+    borderColor: COLORS.textColor,
     borderWidth: 1,
   },
   border: {
     top: 10,
     alignSelf: "stretch",
     height: 0,
-    borderColor: "#DDEFFF",
+    borderColor: COLORS.secondary,
     borderWidth: 1,
   },
   button: {
