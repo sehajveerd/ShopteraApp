@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { COLORS } from "./Colors.js";
 
-const Questionnaire2 = () => {
+const Stack = createNativeStackNavigator();
+
+const Questionnaire2 = ({ navigation }) => {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+  };
+
   return (
     <View
       style={{
@@ -18,7 +29,7 @@ const Questionnaire2 = () => {
           left: 0,
           top: 0,
           position: "absolute",
-          backgroundColor: "#DDEFFF",
+          backgroundColor: COLORS.secondary,
           borderTopLeftRadius: 14,
           borderTopRightRadius: 14,
         }}
@@ -41,7 +52,7 @@ const Questionnaire2 = () => {
       >
         <Text
           style={{
-            color: "#27476E",
+            color: COLORS.primary,
             fontSize: 24,
             fontFamily: "Red Hat Display",
             fontWeight: "700",
@@ -55,19 +66,21 @@ const Questionnaire2 = () => {
         </Text>
       </View>
 
-      <Image
-        source={require("../assets/BackArrow.png")}
-        style={{
-          width: 16,
-          height: 16,
-          left: 33,
-          top: 58,
-          position: "absolute",
-        }}
-      />
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Q1")}
+        style={{ position: "absolute", left: 33, top: 58 }}
+      >
+        <Image
+          source={require("../assets/BackArrow.png")}
+          style={{ width: 16, height: 16 }}
+        />
+      </TouchableOpacity>
 
       <View style={styles.container}>
-        <View style={styles.section}>
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => handleOptionSelect("Beginner")}
+        >
           <View style={styles.content}>
             <Text style={styles.title}>Beginner</Text>
             <Text style={styles.subtitle}>
@@ -75,12 +88,23 @@ const Questionnaire2 = () => {
               ventures.
             </Text>
           </View>
-          <View style={styles.circle} />
-        </View>
+          <View
+            style={[
+              styles.circle,
+              selectedOption === "Beginner" && {
+                backgroundColor: COLORS.primary,
+              },
+            ]}
+          />
+        </TouchableOpacity>
         <View style={styles.border} />
       </View>
+
       <View style={styles.container}>
-        <View style={styles.section}>
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => handleOptionSelect("Proficient")}
+        >
           <View style={styles.content}>
             <Text style={styles.title}>Proficient</Text>
             <Text style={styles.subtitle}>
@@ -88,12 +112,23 @@ const Questionnaire2 = () => {
               markets.
             </Text>
           </View>
-          <View style={styles.circle} />
-        </View>
+          <View
+            style={[
+              styles.circle,
+              selectedOption === "Proficient" && {
+                backgroundColor: COLORS.primary,
+              },
+            ]}
+          />
+        </TouchableOpacity>
         <View style={styles.border} />
       </View>
+
       <View style={styles.container}>
-        <View style={styles.section}>
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => handleOptionSelect("Expert")}
+        >
           <View style={styles.content}>
             <Text style={styles.title}>Expert</Text>
             <Text style={styles.subtitle}>
@@ -101,13 +136,34 @@ const Questionnaire2 = () => {
               knowledge.
             </Text>
           </View>
-          <View style={styles.circle} />
-        </View>
+          <View
+            style={[
+              styles.circle,
+              selectedOption === "Expert" && {
+                backgroundColor: COLORS.primary,
+              },
+            ]}
+          />
+        </TouchableOpacity>
         <View style={styles.border} />
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
-        <Text style={styles.buttonText}>Continue</Text>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          selectedOption && { backgroundColor: COLORS.primary },
+        ]}
+        onPress={() => {
+          if (selectedOption) {
+            // Do something with the selectedOption
+            console.log("Selected Option:", selectedOption);
+            navigation.navigate("Q3");
+          }
+        }}
+      >
+        <Text style={[styles.buttonText, selectedOption && { color: "white" }]}>
+          Continue
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -140,7 +196,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
   title: {
-    color: "#484848",
+    color: COLORS.textColor,
     fontSize: 14,
     fontFamily: "Poppins",
     fontWeight: "700",
@@ -149,7 +205,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     width: "90%",
-    color: "#484848",
+    color: COLORS.textColor,
     fontSize: 12,
     fontFamily: "Poppins",
     fontWeight: "400",
@@ -162,14 +218,14 @@ const styles = StyleSheet.create({
     top: 28,
     right: 20,
     borderRadius: 9999,
-    borderColor: "#484848",
+    borderColor: COLORS.textColor,
     borderWidth: 1,
   },
   border: {
     top: 10,
     alignSelf: "stretch",
     height: 0,
-    borderColor: "#DDEFFF",
+    borderColor: COLORS.secondary,
     borderWidth: 1,
   },
   button: {

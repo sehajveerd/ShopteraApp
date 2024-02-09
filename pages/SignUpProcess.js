@@ -7,8 +7,13 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { COLORS } from "./Colors.js";
 
-const SignUpProcess = () => {
+const Stack = createNativeStackNavigator();
+
+const SignUpProcess = ({ navigation }) => {
   return (
     <View style={styles.signUpProcess}>
       <View style={styles.container}>
@@ -26,7 +31,10 @@ const SignUpProcess = () => {
             Your Goals. Ready to Begin?
           </Text>
         </View>
-        <TouchableOpacity style={styles.button} onPress={() => {}}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Q1")}
+        >
           <Text style={styles.buttonText}>Start questionnaire</Text>
         </TouchableOpacity>
       </View>
@@ -36,13 +44,13 @@ const SignUpProcess = () => {
 
 const styles = StyleSheet.create({
   signUpProcess: {
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
   container: {
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
     width: "100%",
     height: "100%",
   },
@@ -58,14 +66,14 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   letsGetStarted: {
-    color: "#4c4c4c",
+    color: COLORS.textColor,
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 16,
   },
   helpUsTailorYour: {
-    color: "#4c4c4c",
+    color: COLORS.textColor,
     fontSize: 12,
     textAlign: "center",
   },
@@ -77,9 +85,9 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     paddingBottom: 8,
     left: 28,
-    top: 734,
+    top: 730,
     position: "absolute",
-    backgroundColor: "#064682",
+    backgroundColor: COLORS.primary,
     borderRadius: 12,
     justifyContent: "center",
     alignItems: "center",
@@ -87,7 +95,7 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    color: "#ffffff",
+    color: COLORS.white,
     fontSize: 16,
     fontWeight: "bold",
   },

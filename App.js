@@ -16,5 +16,5 @@ import AddressManual from "./pages/AddressManual";
 import AddressAuto from "./pages/AddressAutomatic";
 
 export default function App() {
-  return <AddressAuto />;
+  return <AddressManual />;
 }
