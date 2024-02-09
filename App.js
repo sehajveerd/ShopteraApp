@@ -11,16 +11,10 @@ import LoginScreen from "./pages/LoginScreen";
 import NotiScreen from "./pages/NotiScreen";
 import RecapOfPreferences from "./pages/RecapOfPreferences";
 import LegalName from "./pages/LegalName";
-<<<<<<< HEAD
 import Residence from "./pages/Residence";
+import AddressManual from "./pages/AddressManual";
+import AddressAuto from "./pages/AddressAutomatic";
 
 export default function App() {
-  return <Residence/>;
-=======
-import PhoneNumber from "./pages/PhoneNumberScreen";
-import DateOfBirth from "./pages/DateOfBirth";
-
-export default function App() {
-  return <DateOfBirth />;
->>>>>>> 7008ebd04cd905ff4ce4fac10972835c682ca49a
+  return <AddressAuto />;
 }
