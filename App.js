@@ -12,9 +12,48 @@ import NotiScreen from "./pages/NotiScreen";
 import RecapOfPreferences from "./pages/RecapOfPreferences";
 import LegalName from "./pages/LegalName";
 import Residence from "./pages/Residence";
+import PhoneNumber from "./pages/PhoneNumberScreen";
+import DateOfBirth from "./pages/DateOfBirth";
+import NetWorth from "./pages/NetWorthScreen";
+import SSN from "./pages/SSNSCreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AddressManual from "./pages/AddressManual";
 import AddressAuto from "./pages/AddressAutomatic";
 
+const Stack = createNativeStackNavigator();
+
+/*export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="SignUpProcess" component={SignUpProcess} />
+        <Stack.Screen name="Q1" component={Questionnaire1} />
+        <Stack.Screen name="Q2" component={Questionnaire2} />
+        <Stack.Screen name="Q3" component={Questionnaire3} />
+        <Stack.Screen name="Q4" component={Questionnaire4} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}*/
+
 export default function App() {
-  return <AddressManual />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="PN" component={PhoneNumber} />
+        <Stack.Screen name="DOB" component={DateOfBirth} />
+        <Stack.Screen name="SSN" component={SSN} />
+        <Stack.Screen name="NW" component={NetWorth} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }

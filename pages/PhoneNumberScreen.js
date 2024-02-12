@@ -7,17 +7,27 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const PhoneNPage = () => {
+const Stack = createNativeStackNavigator();
+
+const PhoneNPage = ({ navigation }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
-  const handleContinue = () => {};
+  const handleContinue = () => {
+    navigation.navigate("DOB");
+  };
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../assets/BackArrow.png")}
-        style={styles.backArrow}
-      />
+      <TouchableOpacity
+        onPress={() => navigation.navigate("NW")}
+        style={{ position: "absolute", left: 20, top: 35 }}
+      >
+        <Image
+          source={require("../assets/BackArrow.png")}
+          style={styles.backArrow}
+        />
+      </TouchableOpacity>
 
       <Text style={styles.header}>Enter your phone number</Text>
       <Text style={styles.headerDescription}>
