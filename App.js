@@ -14,7 +14,8 @@ import LegalName from "./pages/LegalName";
 import Residence from "./pages/Residence";
 import AddressManual from "./pages/AddressManual";
 import AddressAuto from "./pages/AddressAutomatic";
+import AboutUs from "./pages/AboutUsScreen";
 
 export default function App() {
-  return <AddressManual />;
+  return <AboutUs/>;
 }
