@@ -8,11 +8,13 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import CountryPicker from "react-native-country-picker-modal";
 
 const Stack = createNativeStackNavigator();
 
 const PhoneNPage = ({ navigation }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [countryCode, setCountryCode] = useState("US");
   const handleContinue = () => {
     navigation.navigate("DOB");
   };
@@ -37,17 +39,38 @@ const PhoneNPage = ({ navigation }) => {
         not for unsolicited calls. Your privacy and security are our top
         priorities.
       </Text>
+      {/* Phone number TextInput */}
 
-      <View style={styles.inputContainer}>
+      <Text style={styles.flagLabel}>country code</Text>
+      <View style={styles.rowContainer}>
+        <CountryPicker
+          onSelect={(country) => setCountryCode(country.cca2)}
+          countryCode={countryCode}
+          withCountryNameButton={false}
+          withCallingCode={true}
+          withCallingCodeButton={true}
+          containerButtonStyle={{
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        />
+
+        <View style={styles.line} />
+        {/* Line separating flag and phone number */}
         <TextInput
-          style={styles.input}
-          placeholder="000-000-0000 "
+          placeholder="000-000-0000"
           value={phoneNumber}
-          onChangeText={(text) => setPhoneNumber(text)}
+          onChangeText={(text) => {
+            if (text.length <= 10) {
+              setPhoneNumber(text);
+            }
+          }}
           keyboardType="phone-pad"
+          maxLength={10}
         />
       </View>
 
+      {/* Continue button */}
       <TouchableOpacity
         style={phoneNumber ? styles.button : styles.disabledButton}
         onPress={phoneNumber ? handleContinue : () => {}}
@@ -91,19 +114,11 @@ const styles = StyleSheet.create({
     paddingBottom: "0%",
   },
 
-  inputContainer: {
-    paddingHorizontal: "5%",
-    marginTop: "5%",
-  },
-
-  input: {
-    height: 50,
-    borderColor: "#DCDDE0",
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    paddingLeft: 15,
-    width: 340,
+  flagLabel: {
+    fontSize: 9,
+    marginTop: 228,
+    marginLeft: 38,
+    position: "absolute",
   },
 
   button: {
@@ -134,6 +149,27 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 16,
     fontWeight: "bold",
+  },
+
+  rowContainer: {
+    height: 50,
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft: 15,
+    marginBottom: 10,
+    paddingHorizontal: "5%",
+    marginTop: "5%",
+    borderWidth: 2,
+    borderRadius: 8,
+    borderColor: "#DCDDE0",
+    width: 340,
+  },
+
+  line: {
+    height: "100%",
+    width: 2,
+    backgroundColor: "#DCDDE0", // Adjust the color to your preference
+    marginHorizontal: 10,
   },
 });
 export default PhoneNPage;
