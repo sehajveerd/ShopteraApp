@@ -3,59 +3,32 @@ import {
   Image,
   View,
   Text,
-  TextInput,
   StyleSheet,
   TouchableOpacity,
   Alert,
 } from "react-native";
-
+import DateTimePicker from "@react-native-community/datetimepicker";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
 
-const isValidDate = (inputStr) => {
-  // Define the pattern for "MM-DD-YYYY"
-  const pattern = /^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])-(\d{4})$/;
-
-  // Check if the input matches the pattern
-  const match = inputStr.match(pattern);
-
-  if (match) {
-    // Extract the month, day, and year
-    const [_, month, day, year] = match;
-
-    // Convert the extracted values to integers
-    const intMonth = parseInt(month, 10);
-    const intDay = parseInt(day, 10);
-    const intYear = parseInt(year, 10);
-
-    // Check if the month is valid (1-12)
-    if (1 <= intMonth && intMonth <= 12) {
-      // Check if the day is valid for the given month
-      if (
-        (/[13578]/.test(month) && intDay <= 31) ||
-        (/[469]|11/.test(month) && intDay <= 30) ||
-        (intMonth === 2 &&
-        ((intYear % 4 === 0 && intYear % 100 !== 0) || intYear % 400 === 0)
-          ? intDay <= 29
-          : intDay <= 28)
-      ) {
-        return true;
-      }
-    }
-  }
-
-  return false;
-};
-
 const DOBPage = ({ navigation }) => {
-  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(false);
+
   const handleContinue = () => {
-    if (isValidDate(dateOfBirth)) {
+    if (dateOfBirth) {
       navigation.navigate("SSN");
     } else {
       // Invalid date, show an error message or handle accordingly
-      Alert.alert("Error", "Please enter a valid date of birth.");
+      Alert.alert("Error", "Please select a valid date of birth.");
+    }
+  };
+
+  const onDateChange = (event, selectedDate) => {
+    setShowDatePicker(false);
+    if (selectedDate) {
+      setDateOfBirth(selectedDate);
     }
   };
 
@@ -71,21 +44,29 @@ const DOBPage = ({ navigation }) => {
         />
       </TouchableOpacity>
 
-      <Text style={styles.header}>Enter your date of birth</Text>
+      <Text style={styles.header}>Select your date of birth</Text>
       <Text style={styles.headerDescription}>
         Please provide your date of birth to verify your identity and ensure
         compliance with legal requirements.
       </Text>
 
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="MM-DD-YYYY"
+      <TouchableOpacity
+        style={styles.datePickerContainer}
+        onPress={() => setShowDatePicker(true)}
+      >
+        <Text style={styles.dateText}>
+          {dateOfBirth.toLocaleDateString("en-US")}
+        </Text>
+      </TouchableOpacity>
+
+      {showDatePicker && (
+        <DateTimePicker
           value={dateOfBirth}
-          onChangeText={(text) => setDateOfBirth(text)}
-          keyboardType="phone-pad"
+          mode="date"
+          display="spinner"
+          onChange={onDateChange}
         />
-      </View>
+      )}
 
       <TouchableOpacity
         style={dateOfBirth ? styles.button : styles.disabledButton}
@@ -173,6 +154,22 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 16,
     fontWeight: "bold",
+  },
+
+  datePickerContainer: {
+    paddingHorizontal: "5%",
+    marginTop: "5%",
+    height: 50,
+    borderColor: "#DCDDE0",
+    borderWidth: 1,
+    borderRadius: 8,
+    justifyContent: "center",
+    marginBottom: 10,
+  },
+
+  dateText: {
+    paddingLeft: 15,
+    color: "#000000",
   },
 });
 export default DOBPage;
