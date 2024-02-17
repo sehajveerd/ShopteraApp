@@ -11,8 +11,7 @@ import {
 export const COLORS = {
   white: "#ffffff",
   black: "#000000",
-  primary: "#064682",
-  secondary: "#DDEFFF",
-  // secondary: "#D6F49D", // the green secondary color theme
-  textColor: "#4c4c4c",
+  primary: "#01203E",
+  secondary: "#D6F49D",
+  textColor: "#011222",
 };
