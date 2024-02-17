@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Image, View, Text, StyleSheet, TouchableOpacity, TextInput } from "react-native";
 
-const AddressInfoPage = () => {
+const AddressInfoPage = ({ navigation }) => {
   const [address, setAddress] = useState({
     streetNum1: "",
     streetNum2: "",
@@ -14,6 +14,7 @@ const AddressInfoPage = () => {
   const handleContinuePress = () => {
     // Handle the logic when the user presses Continue
     console.log("Address:", address);
+    //navigation.navigate("");
   };
 
   const handleBackPress = () => {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Image, View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import ModalDropdown from "react-native-modal-dropdown";
 
-const UserInfoPage = () => {
+const UserInfoPage = ({ navigation }) => {
   const [citizenship, setCitizenship] = useState(null);
   const [residence, setResidence] = useState(null);
   const [countries, setCountries] = useState([]);
@@ -24,9 +24,9 @@ const UserInfoPage = () => {
   }, []);
 
   const handleContinuePress = () => {
-    // Handle the logic when the user presses Continue
     console.log("Country of Citizenship:", citizenship);
     console.log("Country of Residence:", residence);
+    navigation.navigate("AddressManual");
   };
 
   const handleBackPress = () => {

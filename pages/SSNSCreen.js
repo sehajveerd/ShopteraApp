@@ -7,16 +7,26 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const DOBPage = () => {
+const Stack = createNativeStackNavigator();
+
+const DOBPage = ({ navigation }) => {
   const [SSnumber, setSSnumber] = useState("");
-  const handleContinue = () => {};
+  const handleContinue = () => {
+    navigation.navigate("NW");
+  };
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../assets/BackArrow.png")}
-        style={styles.backArrow}
-      />
+      <TouchableOpacity
+        onPress={() => navigation.navigate("DOB")}
+        style={{ position: "absolute", left: 20, top: 35 }}
+      >
+        <Image
+          source={require("../assets/BackArrow.png")}
+          style={styles.backArrow}
+        />
+      </TouchableOpacity>
 
       <Text style={styles.header}>Enter your Social Security number</Text>
       <Text style={styles.headerDescription}>

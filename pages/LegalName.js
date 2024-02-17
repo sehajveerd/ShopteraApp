@@ -8,16 +8,15 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-const UserInfoPage = () => {
+const UserInfoPage = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
   const handleContinuePress = () => {
-    // Handle the logic when the user presses Continue
-    // You can use the entered first and last name (firstName and lastName) here
-    // For now, let's just log them to the console
     console.log("First Name:", firstName);
     console.log("Last Name:", lastName);
+    navigation.navigate("Residence");
+
   };
   const handleBackPress = () => {
     // Add your navigation logic here to go back
@@ -62,7 +61,7 @@ const UserInfoPage = () => {
           styles.button,
           { backgroundColor: isContinueButtonEnabled ? "#064682" : "#E0E0E0" },
         ]}
-        onPress={isContinueButtonEnabled ? handleContinuePress : null}
+        onPress={(isContinueButtonEnabled ? handleContinuePress : null)}
         disabled={!isContinueButtonEnabled}
       >
         <Text style={styles.buttonText}>Continue</Text>

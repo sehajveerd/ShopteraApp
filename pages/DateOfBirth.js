@@ -9,6 +9,10 @@ import {
   Alert,
 } from "react-native";
 
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
+
 const isValidDate = (inputStr) => {
   // Define the pattern for "MM-DD-YYYY"
   const pattern = /^(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])-(\d{4})$/;
@@ -44,10 +48,11 @@ const isValidDate = (inputStr) => {
   return false;
 };
 
-const DOBPage = () => {
+const DOBPage = ({ navigation }) => {
   const [dateOfBirth, setDateOfBirth] = useState("");
   const handleContinue = () => {
     if (isValidDate(dateOfBirth)) {
+      navigation.navigate("SSN");
     } else {
       // Invalid date, show an error message or handle accordingly
       Alert.alert("Error", "Please enter a valid date of birth.");
@@ -56,10 +61,15 @@ const DOBPage = () => {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../assets/BackArrow.png")}
-        style={styles.backArrow}
-      />
+      <TouchableOpacity
+        onPress={() => navigation.navigate("PN")}
+        style={{ position: "absolute", left: 20, top: 35 }}
+      >
+        <Image
+          source={require("../assets/BackArrow.png")}
+          style={styles.backArrow}
+        />
+      </TouchableOpacity>
 
       <Text style={styles.header}>Enter your date of birth</Text>
       <Text style={styles.headerDescription}>

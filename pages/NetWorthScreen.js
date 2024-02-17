@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import ModalDropdown from "react-native-modal-dropdown";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const NetWorth = () => {
+const Stack = createNativeStackNavigator();
+
+const NetWorth = ({ navigation }) => {
   const options = [
     "Option 1",
     "Option 2",
@@ -16,15 +19,21 @@ const NetWorth = () => {
   const handleContinue = () => {
     // Handle the continue logic here
     console.log("Continue button pressed with option:", selectedOption);
+    navigation.navigate("PN");
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <Image
-          source={require("../assets/BackArrow.png")}
-          style={styles.backArrow}
-        />
+        <TouchableOpacity
+          onPress={() => navigation.navigate("SSN")}
+          style={{ position: "absolute", left: 20, top: 35 }}
+        >
+          <Image
+            source={require("../assets/BackArrow.png")}
+            style={styles.backArrow}
+          />
+        </TouchableOpacity>
 
         <Text style={styles.header}>
           What is your estimated net{"\n"}worth?

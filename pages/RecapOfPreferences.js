@@ -7,6 +7,8 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
 
 const recaps = [
   {
@@ -27,10 +29,9 @@ const recaps = [
     description:
       "Experience hands-free investing with personalized AI recommendations and expert guidance for a worry-free journey.",
   },
-  // Add more recaps as needed
 ];
 
-const RecapPage = () => {
+const RecapPage = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
@@ -54,7 +55,7 @@ const RecapPage = () => {
       <TouchableOpacity
         style={styles.button2}
         onPress={() => {
-          /* handle button press */
+          /* handle button press FOR BACK*/
         }}
       >
         <Text style={styles.button2Text}>I want to make changes</Text>
@@ -62,7 +63,7 @@ const RecapPage = () => {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          /* handle button press */
+          navigation.navigate("LegalName");
         }}
       >
         <Text style={styles.buttonText}>Sounds Good</Text>
