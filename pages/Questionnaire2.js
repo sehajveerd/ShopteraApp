@@ -29,7 +29,7 @@ const Questionnaire2 = ({ navigation }) => {
           left: 0,
           top: 0,
           position: "absolute",
-          backgroundColor: COLORS.secondary,
+          backgroundColor: COLORS.primary,
           borderTopLeftRadius: 14,
           borderTopRightRadius: 14,
         }}
@@ -52,7 +52,7 @@ const Questionnaire2 = ({ navigation }) => {
       >
         <Text
           style={{
-            color: COLORS.primary,
+            color: COLORS.secondary,
             fontSize: 24,
             fontFamily: "Red Hat Display",
             fontWeight: "700",
@@ -72,7 +72,7 @@ const Questionnaire2 = ({ navigation }) => {
       >
         <Image
           source={require("../assets/BackArrow.png")}
-          style={{ width: 16, height: 16 }}
+          style={{ width: 22, height: 15 }}
         />
       </TouchableOpacity>
 

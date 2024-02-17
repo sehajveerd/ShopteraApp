@@ -1,101 +1,204 @@
 import React from "react";
 import { View, Image, Text, StyleSheet, Font, Dimensions } from "react-native";
-import {TouchableOpacity} from 'react-native';
+import { TouchableOpacity } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { COLORS } from "./Colors.js";
 
-const WelcomeScreen = () => {
+const Stack = createNativeStackNavigator();
+
+const WelcomeScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Sophtera</Text>
-      <Text style={styles.text2}>Experience Hassle-Free Real Estate Investing at Your Fingertips. Manage your portfolio and join related communities</Text>
-        <View style={styles.innerContainer}>
-            <Image
-                style={styles.image}
-                source={require("../assets/Building.png")}
-                alt="building"
-            />
-    <View style={styles.innerContainer2}>
-    <TouchableOpacity
-        style={{
-            
-            position: 'absolute',
-            bottom: 20,
-            width: '80%',
-            height: '40',
-            backgroundColor: '#DDEFFF',
-            borderRadius: 10,
-            justifyContent: 'center',
-            alignItems: 'center',
-            alignSelf: 'center',
-        }}
+    <View
+      style={{
+        width: "100%",
+        height: "100%",
+        position: "relative",
+        backgroundColor: COLORS.primary,
+      }}
     >
-      <Text style={{
-        textAlign: 'center',
-        color: 'rgba(0, 0, 0, 0.20)',
-        fontSize: 14,
-        fontFamily: 'Poppins',
-        fontWeight: '600',
-        wordWrap: 'break-word'
-      }}>
-        Log In
-      </Text>
-    </TouchableOpacity>
-    </View>
-        </View>
+      <View
+        style={{
+          width: "100%",
+          height: "66%",
+          left: 0,
+          top: 0,
+          position: "absolute",
+          backgroundColor: COLORS.white,
+          borderTopLeftRadius: 14,
+          borderTopRightRadius: 14,
+        }}
+      />
+
+      <View
+        style={{
+          height: 102,
+          paddingLeft: 32,
+          paddingRight: 32,
+          left: 0,
+          top: 97,
+          position: "absolute",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          alignItems: "flex-start",
+          gap: 8,
+          display: "flex",
+        }}
+      >
+        <Text
+          style={{
+            color: COLORS.primary,
+            fontSize: 44,
+            fontFamily: "Poppins",
+            fontWeight: "450",
+            lineHeight: 44,
+            wordWrap: "break-word",
+          }}
+        >
+          Welcome to Sophtera
+        </Text>
+        <Text
+          style={{
+            color: COLORS.primary,
+            fontSize: 15,
+            fontWeight: "300",
+            lineHeight: 33.84,
+            wordWrap: "break-word",
+          }}
+        >
+          Experience Hassle-Free Real Estate Investing at Your Fingertips.
+          Manage your portfolio and join related communities
+        </Text>
+        <Image
+          style={styles.image}
+          source={require("../assets/Building.png")}
+          alt="building"
+        />
+      </View>
+      <View style={[styles.buttonsContainer]}>
+        <TouchableOpacity
+          style={[styles.button]}
+          onPress={() => {
+            navigation.navigate("LoginScreen");
+            console.log("Log In");
+          }}
+        >
+          <Text style={[styles.buttonText]}>Log In</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.button2]}
+          onPress={() => {
+            navigation.navigate("SignUpProcess");
+            console.log("Sign Up");
+          }}
+        >
+          <Text style={[styles.button2Text]}>Sign Up</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
-
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "rgba(255, 255, 255, 1)",
+    width: "88%",
+    height: "8%",
+    flexDirection: "column",
+    top: 245,
+    left: 20,
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    marginVertical: 12,
+  },
+  section: {
+    height: 70,
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+  },
+  content: {
     flex: 1,
+    height: 69,
+    paddingVertical: 1,
+    justifyContent: "flex-start",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    marginHorizontal: 8,
   },
-  text: {
-    fontFamily: "Poppins-SemiBold",
-    fontSize: 36,
-    width: '100%',
-    fontWeight: '500',
-    wordWrap: 'break-word',
-    paddingHorizontal: 20,
-    marginTop: 60,
-  },
-  text2: {
+  title: {
+    color: COLORS.textColor,
+    fontSize: 14,
     fontFamily: "Poppins",
-    fontSize: 12,
-    lineHeight: 22,
-    color: "#4D4D4D",
     fontWeight: "400",
+    lineHeight: 26,
     wordWrap: "break-word",
-    width: "100%",
-    paddingHorizontal: 20,
-    marginTop: 10,
+  },
+  subtitle: {
+    width: "90%",
+    color: COLORS.textColor,
+    fontSize: 12,
+    fontFamily: "Poppins",
+    fontWeight: "50",
+    lineHeight: 10,
+    wordWrap: "break-word",
+  },
+  border: {
+    top: 10,
+    alignSelf: "stretch",
+    height: 0,
+    borderColor: COLORS.secondary,
+    borderWidth: 1,
+  },
+  button: {
+    width: 100,
+    height: 44,
+    right: 10,
+    bottom: 8,
+    left: 44,
+    top: 734,
+    backgroundColor: COLORS.secondary,
+    borderRadius: 12,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonText: {
+    textAlign: "center",
+    color: COLORS.primary,
+    fontSize: 14,
+    fontFamily: "Poppins",
+    fontWeight: "600",
+    wordWrap: "break-word",
   },
   image: {
-    /* width: "80%",
-    height: "80%",
-    position: "absolute",
+    width: 330,
+    height: 180,
     top: 110,
-    width: 630,
-    height: 239,
-    */
-   marginTop: 70,
-   width: windowWidth,
-   height: windowHeight * 0.5,
-   resizeMode: 'contain',
-   paddingBottom: 60,
+    resizeMode: "contain",
   },
-  innerContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
+  buttonsContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
   },
-  innerContainer2: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    paddingTop: 260,
-    backgroundColor: "#3365b6",
+  button2: {
+    width: 100,
+    height: 44,
+    right: 10,
+    bottom: 8,
+    left: 60,
+    top: 734,
+    backgroundColor: COLORS.secondary,
+    borderRadius: 12,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  button2Text: {
+    textAlign: "center",
+    color: COLORS.primary,
+    fontSize: 14,
+    fontFamily: "Poppins",
+    fontWeight: "600",
+    wordWrap: "break-word",
   },
 });
 

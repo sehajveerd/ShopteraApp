@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { RadioButton } from "react-native-paper";
 import {
   View,
   Text,
@@ -36,7 +37,7 @@ const Questionnaire1 = ({ navigation }) => {
           left: 0,
           top: 0,
           position: "absolute",
-          backgroundColor: COLORS.secondary,
+          backgroundColor: COLORS.primary,
           borderTopLeftRadius: 14,
           borderTopRightRadius: 14,
         }}
@@ -59,7 +60,7 @@ const Questionnaire1 = ({ navigation }) => {
       >
         <Text
           style={{
-            color: COLORS.primary,
+            color: COLORS.secondary,
             fontSize: 24,
             fontFamily: "Red Hat Display",
             fontWeight: "700",
@@ -78,7 +79,7 @@ const Questionnaire1 = ({ navigation }) => {
       >
         <Image
           source={require("../assets/BackArrow.png")}
-          style={{ width: 16, height: 16 }}
+          style={{ width: 22, height: 15 }}
         />
       </TouchableOpacity>
 
@@ -94,13 +95,17 @@ const Questionnaire1 = ({ navigation }) => {
               portfolio.
             </Text>
           </View>
-          <View
-            style={[
-              styles.circle,
-              selectedOption === "Diverse Investment Opportunities" && {
-                backgroundColor: COLORS.primary,
-              },
-            ]}
+          <RadioButton.Android
+            value="Diverse Investment Opportunities"
+            status={
+              selectedOption === "Diverse Investment Opportunities"
+                ? "checked"
+                : "unchecked"
+            }
+            onPress={() =>
+              handleOptionSelect("Diverse Investment Opportunities")
+            }
+            color={COLORS.primary}
           />
         </TouchableOpacity>
         <View style={styles.border} />
@@ -117,13 +122,13 @@ const Questionnaire1 = ({ navigation }) => {
               Earn competitive returns on your investments with Sophtera.
             </Text>
           </View>
-          <View
-            style={[
-              styles.circle,
-              selectedOption === "Competitive Returns" && {
-                backgroundColor: COLORS.primary,
-              },
-            ]}
+          <RadioButton.Android
+            value="Competitive Returns"
+            status={
+              selectedOption === "Competitive Returns" ? "checked" : "unchecked"
+            }
+            onPress={() => handleOptionSelect("Competitive Returns")}
+            color={COLORS.primary}
           />
         </TouchableOpacity>
         <View style={styles.border} />
@@ -141,18 +146,17 @@ const Questionnaire1 = ({ navigation }) => {
               investments.
             </Text>
           </View>
-          <View
-            style={[
-              styles.circle,
-              selectedOption === "Property Ownership" && {
-                backgroundColor: COLORS.primary,
-              },
-            ]}
+          <RadioButton.Android
+            value="Property Ownership"
+            status={
+              selectedOption === "Property Ownership" ? "checked" : "unchecked"
+            }
+            onPress={() => handleOptionSelect("Property Ownership")}
+            color={COLORS.primary}
           />
         </TouchableOpacity>
         <View style={styles.border} />
       </View>
-
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.section}
@@ -164,13 +168,11 @@ const Questionnaire1 = ({ navigation }) => {
               I want to be a real-estate investor and start with Sophtera
             </Text>
           </View>
-          <View
-            style={[
-              styles.circle,
-              selectedOption === "Learn" && {
-                backgroundColor: COLORS.primary,
-              },
-            ]}
+          <RadioButton.Android
+            value="Learn"
+            status={selectedOption === "Learn" ? "checked" : "unchecked"}
+            onPress={() => handleOptionSelect("Learn")}
+            color={COLORS.primary}
           />
         </TouchableOpacity>
         <View style={styles.border} />
@@ -239,15 +241,6 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     lineHeight: 20,
     wordWrap: "break-word",
-  },
-  circle: {
-    width: 15,
-    height: 15,
-    top: 28,
-    right: 20,
-    borderRadius: 9999,
-    borderColor: COLORS.textColor,
-    borderWidth: 1,
   },
   border: {
     top: 10,
