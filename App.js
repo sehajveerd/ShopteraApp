@@ -25,23 +25,6 @@ import AboutUs from "./pages/AboutUsScreen";
 const Stack = createNativeStackNavigator();
 
 
-/*export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="SignUpProcess" component={SignUpProcess} />
-        <Stack.Screen name="Q1" component={Questionnaire1} />
-        <Stack.Screen name="Q2" component={Questionnaire2} />
-        <Stack.Screen name="Q3" component={Questionnaire3} />
-        <Stack.Screen name="Q4" component={Questionnaire4} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
 // export default function App() {
 //   return (
 //     <NavigationContainer>
@@ -75,14 +58,14 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}*/
+}
 
 /*
 export default function App() {
   return <AboutUs />;
 }*/
 
-export default function App() {
+/*export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -97,7 +80,7 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+}*/
 
 // export default function App() {
 //   return (
