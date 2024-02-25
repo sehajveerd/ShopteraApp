@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import { RadioButton } from "react-native-paper";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { COLORS } from "./Colors.js";
 
@@ -88,13 +89,11 @@ const Questionnaire2 = ({ navigation }) => {
               ventures.
             </Text>
           </View>
-          <View
-            style={[
-              styles.circle,
-              selectedOption === "Beginner" && {
-                backgroundColor: COLORS.primary,
-              },
-            ]}
+          <RadioButton.Android
+            value="Beginner"
+            status={selectedOption === "Beginner" ? "checked" : "unchecked"}
+            onPress={() => handleOptionSelect("Beginner")}
+            color={COLORS.primary}
           />
         </TouchableOpacity>
         <View style={styles.border} />
@@ -112,13 +111,11 @@ const Questionnaire2 = ({ navigation }) => {
               markets.
             </Text>
           </View>
-          <View
-            style={[
-              styles.circle,
-              selectedOption === "Proficient" && {
-                backgroundColor: COLORS.primary,
-              },
-            ]}
+          <RadioButton.Android
+            value="Proficient"
+            status={selectedOption === "Proficient" ? "checked" : "unchecked"}
+            onPress={() => handleOptionSelect("Proficient")}
+            color={COLORS.primary}
           />
         </TouchableOpacity>
         <View style={styles.border} />
@@ -136,13 +133,11 @@ const Questionnaire2 = ({ navigation }) => {
               knowledge.
             </Text>
           </View>
-          <View
-            style={[
-              styles.circle,
-              selectedOption === "Expert" && {
-                backgroundColor: COLORS.primary,
-              },
-            ]}
+          <RadioButton.Android
+            value="Expert"
+            status={selectedOption === "Expert" ? "checked" : "unchecked"}
+            onPress={() => handleOptionSelect("Expert")}
+            color={COLORS.primary}
           />
         </TouchableOpacity>
         <View style={styles.border} />

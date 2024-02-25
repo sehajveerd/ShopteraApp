@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Image, View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import ModalDropdown from "react-native-modal-dropdown";
+import { COLORS } from "./Colors.js";
 
 const UserInfoPage = ({ navigation }) => {
   const [citizenship, setCitizenship] = useState(null);
@@ -93,7 +94,11 @@ const UserInfoPage = ({ navigation }) => {
       <TouchableOpacity
         style={[
           styles.button,
-          { backgroundColor: isContinueButtonEnabled ? "#064682" : "#E0E0E0" },
+          {
+            backgroundColor: isContinueButtonEnabled
+              ? COLORS.primary
+              : "#E0E0E0",
+          },
         ]}
         onPress={isContinueButtonEnabled ? handleContinuePress : null}
         disabled={!isContinueButtonEnabled}
@@ -106,7 +111,7 @@ const UserInfoPage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
     flex: 1,
     marginLeft: 15,
   },
@@ -125,7 +130,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     paddingHorizontal: "5%",
     marginTop: 75,
-    color: "#064682",
+    color: COLORS.primary,
   },
   headerDescription: {
     fontSize: 13,
@@ -146,7 +151,7 @@ const styles = StyleSheet.create({
   dropdownText: {
     fontSize: 16,
     padding: 10,
-    color: "#000000",
+    color: COLORS.black,
     borderWidth: 1,
     borderColor: "#DCDDE0",
     borderRadius: 8,
@@ -165,7 +170,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
   },
   button: {
-    backgroundColor: "#064682",
+    backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
     marginTop: "120%",
@@ -175,7 +180,7 @@ const styles = StyleSheet.create({
     width: 365,
   },
   buttonText: {
-    color: "#ffffff",
+    color: COLORS.white,
     fontSize: 16,
     fontWeight: "bold",
   },

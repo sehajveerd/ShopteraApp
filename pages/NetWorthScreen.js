@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import ModalDropdown from "react-native-modal-dropdown";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { COLORS } from "./Colors.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -76,7 +77,7 @@ const NetWorth = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
     flex: 1,
   },
 
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     lineHeight: 33.84,
     paddingHorizontal: "5%",
     marginTop: 75,
-    color: "#01203E",
+    color: COLORS.primary,
   },
 
   headerDescription: {
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: "5%",
     marginTop: 10,
-    color: "#01203E",
+    color: COLORS.primary,
   },
 
   bodyText: {
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#01203E",
+    backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
     marginLeft: "5%",
@@ -146,13 +147,13 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    color: "#ffffff",
+    color: COLORS.white,
     fontSize: 16,
     fontWeight: "bold",
   },
 
   headerContainer: {
-    backgroundColor: "#D6F49D",
+    backgroundColor: COLORS.secondary,
     height: "35%",
   },
 });

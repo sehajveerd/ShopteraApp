@@ -47,10 +47,10 @@ const WelcomeScreen = ({ navigation }) => {
       >
         <Text
           style={{
-            color: COLORS.primary,
+            color: COLORS.black,
             fontSize: 44,
             fontFamily: "Poppins",
-            fontWeight: "450",
+            fontWeight: "500",
             lineHeight: 44,
             wordWrap: "break-word",
           }}
@@ -59,10 +59,11 @@ const WelcomeScreen = ({ navigation }) => {
         </Text>
         <Text
           style={{
-            color: COLORS.primary,
+            color: COLORS.black,
+            top: 10,
             fontSize: 15,
-            fontWeight: "300",
-            lineHeight: 33.84,
+            fontWeight: "400",
+            lineHeight: 25.84,
             wordWrap: "break-word",
           }}
         >
@@ -150,12 +151,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   button: {
-    width: 100,
+    width: 240,
     height: 44,
     right: 10,
     bottom: 8,
-    left: 44,
-    top: 734,
+    left: 80,
+    top: 650,
     backgroundColor: COLORS.secondary,
     borderRadius: 12,
     justifyContent: "center",
@@ -172,21 +173,21 @@ const styles = StyleSheet.create({
   image: {
     width: 330,
     height: 180,
-    top: 110,
+    top: 132,
     resizeMode: "contain",
   },
   buttonsContainer: {
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "flex-start",
   },
   button2: {
-    width: 100,
+    width: 240,
     height: 44,
     right: 10,
     bottom: 8,
-    left: 60,
-    top: 734,
+    left: 80,
+    top: 670,
     backgroundColor: COLORS.secondary,
     borderRadius: 12,
     justifyContent: "center",

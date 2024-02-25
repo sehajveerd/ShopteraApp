@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Image, View, Text, StyleSheet, TouchableOpacity, TextInput } from "react-native";
+import {
+  Image,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
+import { COLORS } from "./Colors.js";
 
 const AddressInfoPage = ({ navigation }) => {
   const [address, setAddress] = useState({
@@ -22,7 +30,12 @@ const AddressInfoPage = ({ navigation }) => {
     navigation.goBack();
   };
 
-  const isContinueButtonEnabled = address.streetNum1 && address.city && address.state && address.country && address.zipCode;
+  const isContinueButtonEnabled =
+    address.streetNum1 &&
+    address.city &&
+    address.state &&
+    address.country &&
+    address.zipCode;
 
   return (
     <View style={styles.container}>
@@ -38,56 +51,46 @@ const AddressInfoPage = ({ navigation }) => {
       </Text>
 
       <View style={styles.inputContainer}>
-        <Text style={styles.addText}>
-            Address Line 1*
-        </Text>
+        <Text style={styles.addText}>Address Line 1*</Text>
         <View style={styles.inputRow}>
           <TextInput
             style={[styles.input, { flex: 2 }]}
             placeholder="Enter Address"
             value={address.streetNum1}
-            onChangeText={(text) => setAddress({ ...address, streetNum1: text })}
+            onChangeText={(text) =>
+              setAddress({ ...address, streetNum1: text })
+            }
           />
         </View>
-        <Text style={styles.addText}>
-            Address Line 2 (optional)
-        </Text>
+        <Text style={styles.addText}>Address Line 2 (optional)</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Address"
           value={address.streetNum2}
           onChangeText={(text) => setAddress({ ...address, streetNum2: text })}
         />
-        <Text style={styles.addText}>
-            City*
-        </Text>
+        <Text style={styles.addText}>City*</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Address"
           value={address.city}
           onChangeText={(text) => setAddress({ ...address, city: text })}
         />
-        <Text style={styles.addText}>
-            State*
-        </Text>
+        <Text style={styles.addText}>State*</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Address"
           value={address.state}
           onChangeText={(text) => setAddress({ ...address, city: text })}
         />
-        <Text style={styles.addText}>
-            Country*
-        </Text>
+        <Text style={styles.addText}>Country*</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Address"
           value={address.country}
           onChangeText={(text) => setAddress({ ...address, country: text })}
         />
-        <Text style={styles.addText}>
-            Zip Code*
-        </Text>
+        <Text style={styles.addText}>Zip Code*</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter Address"
@@ -100,7 +103,11 @@ const AddressInfoPage = ({ navigation }) => {
       <TouchableOpacity
         style={[
           styles.button,
-          { backgroundColor: isContinueButtonEnabled ? "#064682" : "#E0E0E0" },
+          {
+            backgroundColor: isContinueButtonEnabled
+              ? COLORS.primary
+              : "#E0E0E0",
+          },
         ]}
         onPress={isContinueButtonEnabled ? handleContinuePress : null}
         disabled={!isContinueButtonEnabled}
@@ -113,7 +120,7 @@ const AddressInfoPage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
     flex: 1,
     marginLeft: 15,
   },
@@ -132,7 +139,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     paddingHorizontal: "5%",
     marginTop: 75,
-    color: "#064682",
+    color: COLORS.primary,
   },
   addText: {
     fontSize: 13,
@@ -165,7 +172,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    backgroundColor: "#064682",
+    backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
     marginTop: "20%",
@@ -175,7 +182,7 @@ const styles = StyleSheet.create({
     width: 365,
   },
   buttonText: {
-    color: "#ffffff",
+    color: COLORS.white,
     fontSize: 16,
     fontWeight: "bold",
   },

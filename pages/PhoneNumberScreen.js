@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CountryPicker from "react-native-country-picker-modal";
+import { COLORS } from "./Colors.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -84,7 +85,7 @@ const PhoneNPage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
     flex: 1,
   },
 
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     paddingHorizontal: "5%",
     marginTop: 75,
-    color: "#01203E",
+    color: COLORS.primary,
   },
 
   headerDescription: {
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#01203E",
+    backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
     marginLeft: "5%",
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    color: "#ffffff",
+    color: COLORS.white,
     fontSize: 16,
     fontWeight: "bold",
   },

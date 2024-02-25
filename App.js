@@ -24,25 +24,6 @@ import AboutUs from "./pages/AboutUsScreen";
 
 const Stack = createNativeStackNavigator();
 
-
-// export default function App() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator
-//         screenOptions={{
-//           headerShown: false,
-//         }}
-//       >
-//         <Stack.Screen name="SignUpProcess" component={SignUpProcess} />
-//         <Stack.Screen name="Q1" component={Questionnaire1} />
-//         <Stack.Screen name="Q2" component={Questionnaire2} />
-//         <Stack.Screen name="Q3" component={Questionnaire3} />
-//         <Stack.Screen name="Q4" component={Questionnaire4} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
-
 export default function App() {
   return (
     <NavigationContainer>
@@ -51,6 +32,22 @@ export default function App() {
           headerShown: false,
         }}
       >
+        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="SignUpProcess" component={SignUpProcess} />
+        <Stack.Screen name="NotiScreen" component={NotiScreen} />
+        <Stack.Screen name="About" component={AboutUs} />
+        <Stack.Screen name="Q1" component={Questionnaire1} />
+        <Stack.Screen name="Q2" component={Questionnaire2} />
+        <Stack.Screen name="Q3" component={Questionnaire3} />
+        <Stack.Screen name="Q4" component={Questionnaire4} />
+        <Stack.Screen
+          name="RecapOfPreferences"
+          component={RecapOfPreferences}
+        />
+        <Stack.Screen name="LegalName" component={LegalName} />
+        <Stack.Screen name="Residence" component={Residence} />
+        <Stack.Screen name="AddressManual" component={AddressManual} />
         <Stack.Screen name="PN" component={PhoneNumber} />
         <Stack.Screen name="DOB" component={DateOfBirth} />
         <Stack.Screen name="SSN" component={SSN} />
@@ -59,46 +56,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-/*
-export default function App() {
-  return <AboutUs />;
-}*/
-
-/*export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="RecapOfPreferences" component={RecapOfPreferences} />
-        <Stack.Screen name="LegalName" component={LegalName} />
-        <Stack.Screen name="Residence" component={Residence} />
-        <Stack.Screen name="AddressManual" component={AddressManual} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}*/
-
-// export default function App() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator
-//         screenOptions={{
-//           headerShown: false,
-//         }}
-//       >
-//         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-//         <Stack.Screen name="LoginScreen" component={LoginScreen} />
-//         <Stack.Screen name="NotiScreen" component={NotiScreen} />
-//         <Stack.Screen name="SignUpProcess" component={SignUpProcess} />
-//         <Stack.Screen name="Q1" component={Questionnaire1} />
-//         <Stack.Screen name="Q2" component={Questionnaire2} />
-//         <Stack.Screen name="Q3" component={Questionnaire3} />
-//         <Stack.Screen name="Q4" component={Questionnaire4} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }

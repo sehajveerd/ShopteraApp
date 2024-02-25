@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { RadioButton } from "react-native-paper";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Font,
+} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { COLORS } from "./Colors.js";
@@ -12,6 +20,7 @@ const Questionnaire4 = ({ navigation }) => {
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
   };
+
   return (
     <View
       style={{
@@ -75,47 +84,96 @@ const Questionnaire4 = ({ navigation }) => {
       </TouchableOpacity>
 
       <View style={styles.container}>
-        <View style={styles.section}>
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => handleOptionSelect("Accredited")}
+        >
           <View style={styles.content}>
             <Text style={styles.title}>Accredited</Text>
             <Text style={styles.subtitle}>...</Text>
           </View>
-          <View style={styles.circle} />
-        </View>
+          <RadioButton.Android
+            value="Accredited"
+            status={selectedOption === "Accredited" ? "checked" : "unchecked"}
+            onPress={() => handleOptionSelect("Accredited")}
+            color={COLORS.primary}
+          />
+        </TouchableOpacity>
         <View style={styles.border} />
       </View>
+
       <View style={styles.container}>
-        <View style={styles.section}>
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => handleOptionSelect("Unaccredited")}
+        >
           <View style={styles.content}>
             <Text style={styles.title}>Unaccredited</Text>
             <Text style={styles.subtitle}>...</Text>
           </View>
-          <View style={styles.circle} />
-        </View>
+          <RadioButton.Android
+            value="Unaccredited"
+            status={selectedOption === "Unaccredited" ? "checked" : "unchecked"}
+            onPress={() => handleOptionSelect("Unaccredited")}
+            color={COLORS.primary}
+          />
+        </TouchableOpacity>
         <View style={styles.border} />
       </View>
+
       <View style={styles.container}>
-        <View style={styles.section}>
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => handleOptionSelect("Institutional")}
+        >
           <View style={styles.content}>
             <Text style={styles.title}>Institutional</Text>
             <Text style={styles.subtitle}>...</Text>
           </View>
-          <View style={styles.circle} />
-        </View>
+          <RadioButton.Android
+            value="Institutional"
+            status={
+              selectedOption === "Institutional" ? "checked" : "unchecked"
+            }
+            onPress={() => handleOptionSelect("Institutional")}
+            color={COLORS.primary}
+          />
+        </TouchableOpacity>
         <View style={styles.border} />
       </View>
+
       <View style={styles.container}>
-        <View style={styles.section}>
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => handleOptionSelect("I don't know")}
+        >
           <View style={styles.content}>
             <Text style={styles.title}>I don't know</Text>
             <Text style={styles.subtitle}>...</Text>
           </View>
-          <View style={styles.circle} />
-        </View>
+          <RadioButton.Android
+            value="I don't know"
+            status={selectedOption === "I don't know" ? "checked" : "unchecked"}
+            onPress={() => handleOptionSelect("I don't know")}
+            color={COLORS.primary}
+          />
+        </TouchableOpacity>
         <View style={styles.border} />
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          selectedOption && { backgroundColor: COLORS.primary },
+        ]}
+        onPress={() => {
+          if (selectedOption) {
+            // Do something with the selectedOption
+            console.log("Selected Option:", selectedOption);
+            navigation.navigate("RecapOfPreferences");
+          }
+        }}
+      >
         <Text style={[styles.buttonText, selectedOption && { color: "white" }]}>
           Continue
         </Text>
