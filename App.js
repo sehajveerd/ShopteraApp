@@ -25,28 +25,6 @@ import AboutUs from "./pages/AboutUsScreen";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return <AddressAuto/>;
-}
-
-// export default function App() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator
-//         screenOptions={{
-//           headerShown: false,
-//         }}
-//       >
-//         <Stack.Screen name="SignUpProcess" component={SignUpProcess} />
-//         <Stack.Screen name="Q1" component={Questionnaire1} />
-//         <Stack.Screen name="Q2" component={Questionnaire2} />
-//         <Stack.Screen name="Q3" component={Questionnaire3} />
-//         <Stack.Screen name="Q4" component={Questionnaire4} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
-
-/*export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -77,43 +55,4 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}*/
-
-/*export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="RecapOfPreferences" component={RecapOfPreferences} />
-        <Stack.Screen name="LegalName" component={LegalName} />
-        <Stack.Screen name="Residence" component={Residence} />
-        <Stack.Screen name="AddressManual" component={AddressManual} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}*/
-
-// export default function App() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator
-//         screenOptions={{
-//           headerShown: false,
-//         }}
-//       >
-//         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-//         <Stack.Screen name="LoginScreen" component={LoginScreen} />
-//         <Stack.Screen name="NotiScreen" component={NotiScreen} />
-//         <Stack.Screen name="SignUpProcess" component={SignUpProcess} />
-//         <Stack.Screen name="Q1" component={Questionnaire1} />
-//         <Stack.Screen name="Q2" component={Questionnaire2} />
-//         <Stack.Screen name="Q3" component={Questionnaire3} />
-//         <Stack.Screen name="Q4" component={Questionnaire4} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
 }
