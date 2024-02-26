@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.white,
     flex: 1,
+    marginLeft: 15,
   },
   headerText: {
     fontSize: 30,

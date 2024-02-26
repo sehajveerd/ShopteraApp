@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { COLORS } from "./Colors.js";
 
 const AddressInfoPage = ({ navigation }) => {
@@ -20,13 +21,10 @@ const AddressInfoPage = ({ navigation }) => {
   });
 
   const handleContinuePress = () => {
-    // Handle the logic when the user presses Continue
-    console.log("Address:", address);
-    //navigation.navigate("");
+    navigation.navigate("PN");
   };
 
   const handleBackPress = () => {
-    // Add your navigation logic here to go back
     navigation.goBack();
   };
 
@@ -50,18 +48,59 @@ const AddressInfoPage = ({ navigation }) => {
         Please enter your primary address.
       </Text>
 
+      {/* Address Input */}
+      <View style={styles.inputContainer1}>
+        <Text style={styles.addText}>Address Search*</Text>
+        <GooglePlacesAutocomplete
+          placeholder="Enter Address... 🔍"
+          onPress={(data, details = null) => {
+            const [houseNumber, street, streetType] = data.description.split(
+              " ",
+              3
+            );
+            setAddress({
+              streetNum1: houseNumber + " " + street + " " + streetType || "",
+              city:
+                details?.address_components.find((component) =>
+                  component.types.includes("locality")
+                )?.long_name || "",
+              state:
+                details?.address_components.find((component) =>
+                  component.types.includes("administrative_area_level_1")
+                )?.short_name || "",
+              country:
+                details?.address_components.find((component) =>
+                  component.types.includes("country")
+                )?.long_name || "",
+              zipCode:
+                details?.address_components.find((component) =>
+                  component.types.includes("postal_code")
+                )?.short_name || "",
+            });
+          }}
+          fetchDetails={true}
+          query={{
+            key: "AIzaSyBm36yE3Yte9FJX6s8EbhBDBLRtajQ8BIE",
+            language: "en",
+          }}
+          styles={{
+            container: styles.autocompleteContainer,
+            textInputContainer: styles.textInputContainer,
+            textInput: styles.textInput,
+            listView: styles.listView,
+            description: styles.description,
+            row: styles.row,
+          }}
+        />
+      </View>
       <View style={styles.inputContainer}>
         <Text style={styles.addText}>Address Line 1*</Text>
-        <View style={styles.inputRow}>
-          <TextInput
-            style={[styles.input, { flex: 2 }]}
-            placeholder="Enter Address"
-            value={address.streetNum1}
-            onChangeText={(text) =>
-              setAddress({ ...address, streetNum1: text })
-            }
-          />
-        </View>
+        <TextInput
+          style={styles.input}
+          placeholder="Enter Address"
+          value={address.streetNum1}
+          onChangeText={(text) => setAddress({ ...address, streetNum1: text })}
+        />
         <Text style={styles.addText}>Address Line 2 (optional)</Text>
         <TextInput
           style={styles.input}
@@ -81,7 +120,7 @@ const AddressInfoPage = ({ navigation }) => {
           style={styles.input}
           placeholder="Enter Address"
           value={address.state}
-          onChangeText={(text) => setAddress({ ...address, city: text })}
+          onChangeText={(text) => setAddress({ ...address, state: text })}
         />
         <Text style={styles.addText}>Country*</Text>
         <TextInput
@@ -95,7 +134,7 @@ const AddressInfoPage = ({ navigation }) => {
           style={styles.input}
           placeholder="Enter Address"
           value={address.zipCode}
-          onChangeText={(text) => setAddress({ ...address, city: text })}
+          onChangeText={(text) => setAddress({ ...address, zipCode: text })}
         />
       </View>
 
@@ -122,6 +161,17 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.white,
     flex: 1,
+    marginLeft: 15,
+    position: "relative",
+  },
+  addressDisplayContainer: {
+    paddingHorizontal: "5%",
+    marginTop: 450,
+    marginBottom: 20,
+  },
+  addressText: {
+    fontSize: 16,
+    marginBottom: 5,
   },
   backButton: {
     top: "6%",
@@ -131,6 +181,21 @@ const styles = StyleSheet.create({
   backArrow: {
     height: 15,
     width: 22,
+  },
+  addressText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  switchContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft: "5%",
+    marginBottom: 20,
+  },
+  switchText: {
+    marginLeft: 10,
+    fontSize: 16,
   },
   headerText: {
     fontSize: 20,
@@ -156,6 +221,41 @@ const styles = StyleSheet.create({
     paddingHorizontal: "5%",
     marginTop: "5%",
     marginRight: 15,
+    zIndex: 1,
+  },
+  inputContainer1: {
+    paddingHorizontal: "5%",
+    marginTop: "5%",
+    marginRight: 15,
+    marginBottom: 30,
+  },
+  textInputContainer: {
+    width: "100%",
+  },
+  textInput: {
+    height: 40,
+    borderColor: "#DCDDE0",
+    borderWidth: 1,
+    borderRadius: 8,
+    fontSize: 16,
+    padding: 10,
+    marginBottom: 10,
+  },
+  listView: {
+    position: "absolute",
+    top: 50,
+    left: 0,
+    right: 0,
+    backgroundColor: "#ffffff",
+    elevation: 1,
+    zIndex: 2,
+  },
+  description: {
+    fontSize: 16,
+  },
+  row: {
+    padding: 10,
+    height: 40,
   },
   inputRow: {
     flexDirection: "row",
@@ -174,7 +274,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
-    marginTop: "20%",
+    marginTop: "9%",
     marginLeft: 7,
     alignItems: "center",
     justifyContent: "center",
