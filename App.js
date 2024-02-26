@@ -27,7 +27,8 @@ const Stack = createNativeStackNavigator();
 /*export default function App() {
   return <AddressManual/>;
 }*/
-
+//scawsd
+//cw
 export default function App() {
   return (
     <NavigationContainer>
