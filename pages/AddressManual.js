@@ -21,13 +21,10 @@ const AddressInfoPage = ({ navigation }) => {
   });
 
   const handleContinuePress = () => {
-    // Handle the logic when the user presses Continue
-    console.log("Address:", address);
-    //navigation.navigate("");
+    navigation.navigate("PN");
   };
 
   const handleBackPress = () => {
-    // Add your navigation logic here to go back
     navigation.goBack();
   };
 
@@ -104,16 +101,6 @@ const AddressInfoPage = ({ navigation }) => {
           value={address.streetNum1}
           onChangeText={(text) => setAddress({ ...address, streetNum1: text })}
         />
-        <View style={styles.inputRow}>
-          <TextInput
-            style={[styles.input, { flex: 2 }]}
-            placeholder="Enter Address"
-            value={address.streetNum1}
-            onChangeText={(text) =>
-              setAddress({ ...address, streetNum1: text })
-            }
-          />
-        </View>
         <Text style={styles.addText}>Address Line 2 (optional)</Text>
         <TextInput
           style={styles.input}

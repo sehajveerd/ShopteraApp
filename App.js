@@ -24,6 +24,10 @@ import AboutUs from "./pages/AboutUsScreen";
 
 const Stack = createNativeStackNavigator();
 
+/*export default function App() {
+  return <AddressManual/>;
+}*/
+
 export default function App() {
   return (
     <NavigationContainer>
