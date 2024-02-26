@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Sophtera-App",
-    "slug": "Sophtera-App",
+    "slug": "sophtera-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,18 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "493b6a59-5914-42e7-97d8-ebd723def72a"
+      }
+    },
+    "owner": "sophtera",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/493b6a59-5914-42e7-97d8-ebd723def72a"
     }
   }
 }
