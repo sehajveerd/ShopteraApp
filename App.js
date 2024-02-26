@@ -24,6 +24,9 @@ import AboutUs from "./pages/AboutUsScreen";
 
 const Stack = createNativeStackNavigator();
 
+export default function App() {
+  return <AddressManual/>;
+}
 
 // export default function App() {
 //   return (
@@ -43,7 +46,7 @@ const Stack = createNativeStackNavigator();
 //   );
 // }
 
-export default function App() {
+/*export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -58,11 +61,6 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
-
-/*
-export default function App() {
-  return <AboutUs />;
 }*/
 
 /*export default function App() {
