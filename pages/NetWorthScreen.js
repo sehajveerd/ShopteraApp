@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import ModalDropdown from "react-native-modal-dropdown";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { COLORS } from "./Colors.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +31,7 @@ const NetWorth = ({ navigation }) => {
           style={{ position: "absolute", left: 20, top: 35 }}
         >
           <Image
-            source={require("../assets/BackArrow.png")}
+            source={require("../assets/arrow-left.png")}
             style={styles.backArrow}
           />
         </TouchableOpacity>
@@ -76,17 +77,14 @@ const NetWorth = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
+    flex: 1,
   },
 
   backArrow: {
-    height: 16,
-    width: 22,
-    top: "15%",
-    left: "5%",
+    width: 30,
     zIndex: 1,
   },
-
   header: {
     fontSize: 24,
     width: "100%",
@@ -94,7 +92,7 @@ const styles = StyleSheet.create({
     lineHeight: 33.84,
     paddingHorizontal: "5%",
     marginTop: 75,
-    color: "#064682",
+    color: COLORS.primary,
   },
 
   headerDescription: {
@@ -102,7 +100,7 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: "5%",
     marginTop: 10,
-    color: "#27476E",
+    color: COLORS.primary,
   },
 
   bodyText: {
@@ -125,37 +123,37 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#064682",
+    backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
-    marginTop: "100%",
-    marginBottom: 5,
-    left: "4%",
+    marginLeft: "5%",
     alignItems: "center",
     justifyContent: "center",
-    width: 365,
+    width: "90%",
+    bottom: 10,
+    position: "absolute",
   },
 
   disabledButton: {
     backgroundColor: "#DCDDE0", // Use a color indicating the button is disabled
     borderRadius: 12,
     padding: 13,
-    marginTop: "100%",
-    marginBottom: 5,
-    marginLeft: 7,
+    marginLeft: "5%",
     alignItems: "center",
     justifyContent: "center",
-    width: 365,
+    width: "90%",
+    bottom: 10,
+    position: "absolute",
   },
 
   buttonText: {
-    color: "#ffffff",
+    color: COLORS.white,
     fontSize: 16,
     fontWeight: "bold",
   },
 
   headerContainer: {
-    backgroundColor: "#DDEFFF",
+    backgroundColor: COLORS.secondary,
     height: "35%",
   },
 });

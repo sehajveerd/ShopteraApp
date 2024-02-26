@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+import { COLORS } from "./Colors.js";
 
 const UserInfoPage = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");
@@ -16,7 +17,6 @@ const UserInfoPage = ({ navigation }) => {
     console.log("First Name:", firstName);
     console.log("Last Name:", lastName);
     navigation.navigate("Residence");
-
   };
   const handleBackPress = () => {
     // Add your navigation logic here to go back
@@ -59,12 +59,23 @@ const UserInfoPage = ({ navigation }) => {
       <TouchableOpacity
         style={[
           styles.button,
-          { backgroundColor: isContinueButtonEnabled ? "#064682" : "#E0E0E0" },
+          {
+            backgroundColor: isContinueButtonEnabled
+              ? COLORS.primary
+              : "#E8E8E8",
+          },
         ]}
-        onPress={(isContinueButtonEnabled ? handleContinuePress : null)}
+        onPress={isContinueButtonEnabled ? handleContinuePress : null}
         disabled={!isContinueButtonEnabled}
       >
-        <Text style={styles.buttonText}>Continue</Text>
+        <Text
+          style={[
+            styles.buttonText,
+            isContinueButtonEnabled && { color: "white" },
+          ]}
+        >
+          Continue
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -72,7 +83,7 @@ const UserInfoPage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
     flex: 1,
     marginLeft: 15,
   },
@@ -91,7 +102,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     paddingHorizontal: "5%",
     marginTop: 75,
-    color: "#064682",
+    color: COLORS.primary,
   },
   headerDescription: {
     fontSize: 13,
@@ -125,7 +136,7 @@ const styles = StyleSheet.create({
     marginLeft: 25,
   },
   button: {
-    backgroundColor: "#064682",
+    backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
     marginTop: "105%",
@@ -136,7 +147,7 @@ const styles = StyleSheet.create({
     width: 365,
   },
   buttonText: {
-    color: "#ffffff",
+    color: "#BFBFBF",
     fontSize: 16,
     fontWeight: "bold",
   },

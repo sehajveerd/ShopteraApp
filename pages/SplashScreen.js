@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Image, Text, StyleSheet, Font } from "react-native"; // Assuming React Native
+import { COLORS } from "./Colors.js";
 
 const SplashScreen = () => {
   return (

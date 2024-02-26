@@ -36,7 +36,7 @@ const Questionnaire1 = ({ navigation }) => {
           left: 0,
           top: 0,
           position: "absolute",
-          backgroundColor: COLORS.secondary,
+          backgroundColor: COLORS.primary,
           borderTopLeftRadius: 14,
           borderTopRightRadius: 14,
         }}
@@ -59,7 +59,7 @@ const Questionnaire1 = ({ navigation }) => {
       >
         <Text
           style={{
-            color: COLORS.primary,
+            color: COLORS.secondary,
             fontSize: 24,
             fontFamily: "Red Hat Display",
             fontWeight: "700",
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     width: "90%",
-    color: COLORS.textColor,
+    color: COLORS.secondary,
     fontSize: 12,
     fontFamily: "Poppins",
     fontWeight: "400",

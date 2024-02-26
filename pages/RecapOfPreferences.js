@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { COLORS } from "./Colors.js";
 
 const recaps = [
   {
@@ -74,7 +75,7 @@ const RecapPage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
     flex: 1,
     marginLeft: 15,
   },
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     paddingHorizontal: 20,
     marginTop: 0,
-    color: "#064682",
+    color: COLORS.primary,
     marginLeft: 0,
   },
   recapItem: {
@@ -95,13 +96,13 @@ const styles = StyleSheet.create({
   },
   recapTitle: {
     fontSize: 20,
-    color: "#23272D",
+    color: COLORS.black,
     fontWeight: "700",
     marginBottom: 8,
   },
   recapSelection: {
     fontSize: 16,
-    color: "#23272D",
+    color: "#011222",
     fontWeight: "700",
     backgroundColor: "#E0E0E0",
     borderRadius: 8,
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     marginLeft: 25,
   },
   button: {
-    backgroundColor: "#064682",
+    backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
     marginBottom: 10,

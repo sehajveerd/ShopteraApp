@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CountryPicker from "react-native-country-picker-modal";
+import { COLORS } from "./Colors.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +27,7 @@ const PhoneNPage = ({ navigation }) => {
         style={{ position: "absolute", left: 20, top: 35 }}
       >
         <Image
-          source={require("../assets/BackArrow.png")}
+          source={require("../assets/arrow-left.png")}
           style={styles.backArrow}
         />
       </TouchableOpacity>
@@ -84,16 +85,12 @@ const PhoneNPage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
     flex: 1,
-    marginLeft: 15,
   },
 
   backArrow: {
-    height: 15,
-    width: 22,
-    top: "6%",
-    left: "5%",
+    width: 30,
     zIndex: 1,
   },
 
@@ -103,7 +100,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     paddingHorizontal: "5%",
     marginTop: 75,
-    color: "#064682",
+    color: COLORS.primary,
   },
 
   headerDescription: {
@@ -119,34 +116,35 @@ const styles = StyleSheet.create({
     marginTop: 228,
     marginLeft: 38,
     position: "absolute",
+    height: 50,
   },
 
   button: {
-    backgroundColor: "#064682",
+    backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
-    marginTop: "105%",
-    marginBottom: 5,
-    marginLeft: 7,
+    marginLeft: "5%",
     alignItems: "center",
     justifyContent: "center",
-    width: 365,
+    width: "90%",
+    bottom: 10,
+    position: "absolute",
   },
 
   disabledButton: {
     backgroundColor: "#DCDDE0", // Use a color indicating the button is disabled
     borderRadius: 12,
     padding: 13,
-    marginTop: "105%",
-    marginBottom: 5,
-    marginLeft: 7,
+    marginLeft: "5%",
     alignItems: "center",
     justifyContent: "center",
-    width: 365,
+    width: "90%",
+    bottom: 10,
+    position: "absolute",
   },
 
   buttonText: {
-    color: "#ffffff",
+    color: COLORS.white,
     fontSize: 16,
     fontWeight: "bold",
   },
@@ -155,14 +153,14 @@ const styles = StyleSheet.create({
     height: 50,
     flexDirection: "row",
     alignItems: "center",
-    marginLeft: 15,
+    marginLeft: "5%",
     marginBottom: 10,
     paddingHorizontal: "5%",
     marginTop: "5%",
     borderWidth: 2,
     borderRadius: 8,
     borderColor: "#DCDDE0",
-    width: 340,
+    width: "90%",
   },
 
   line: {

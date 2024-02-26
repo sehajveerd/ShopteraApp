@@ -8,6 +8,7 @@ import {
   TextInput,
 } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import { COLORS } from "./Colors.js";
 
 const AddressInfoPage = ({ navigation }) => {
   const [address, setAddress] = useState({
@@ -103,6 +104,16 @@ const AddressInfoPage = ({ navigation }) => {
           value={address.streetNum1}
           onChangeText={(text) => setAddress({ ...address, streetNum1: text })}
         />
+        <View style={styles.inputRow}>
+          <TextInput
+            style={[styles.input, { flex: 2 }]}
+            placeholder="Enter Address"
+            value={address.streetNum1}
+            onChangeText={(text) =>
+              setAddress({ ...address, streetNum1: text })
+            }
+          />
+        </View>
         <Text style={styles.addText}>Address Line 2 (optional)</Text>
         <TextInput
           style={styles.input}
@@ -144,7 +155,11 @@ const AddressInfoPage = ({ navigation }) => {
       <TouchableOpacity
         style={[
           styles.button,
-          { backgroundColor: isContinueButtonEnabled ? "#064682" : "#E0E0E0" },
+          {
+            backgroundColor: isContinueButtonEnabled
+              ? COLORS.primary
+              : "#E0E0E0",
+          },
         ]}
         onPress={isContinueButtonEnabled ? handleContinuePress : null}
         disabled={!isContinueButtonEnabled}
@@ -157,7 +172,7 @@ const AddressInfoPage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
     flex: 1,
     marginLeft: 15,
     position: "relative",
@@ -201,7 +216,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     paddingHorizontal: "5%",
     marginTop: 75,
-    color: "#064682",
+    color: COLORS.primary,
   },
   addText: {
     fontSize: 13,
@@ -269,7 +284,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    backgroundColor: "#064682",
+    backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
     marginTop: "9%",
@@ -279,7 +294,7 @@ const styles = StyleSheet.create({
     width: 365,
   },
   buttonText: {
-    color: "#ffffff",
+    color: COLORS.white,
     fontSize: 16,
     fontWeight: "bold",
   },

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { RadioButton } from "react-native-paper";
+
 import { COLORS } from "./Colors.js";
 
 const Stack = createNativeStackNavigator();
@@ -86,13 +88,13 @@ const Questionnaire3 = ({ navigation }) => {
               for a hands-on approach
             </Text>
           </View>
-          <View
-            style={[
-              styles.circle,
-              selectedOption === "I am hands-on" && {
-                backgroundColor: COLORS.textColor,
-              },
-            ]}
+          <RadioButton.Android
+            value="I am hands-on"
+            status={
+              selectedOption === "I am hands-on" ? "checked" : "unchecked"
+            }
+            onPress={() => handleOptionSelect("I am hands-on")}
+            color={COLORS.primary}
           />
         </TouchableOpacity>
         <View style={styles.border} />
@@ -110,13 +112,13 @@ const Questionnaire3 = ({ navigation }) => {
               recommendations and expert guidance for a worry-free journey.
             </Text>
           </View>
-          <View
-            style={[
-              styles.circle,
-              selectedOption === "I am hands-off" && {
-                backgroundColor: COLORS.textColor,
-              },
-            ]}
+          <RadioButton.Android
+            value="I am hands-off"
+            status={
+              selectedOption === "I am hands-off" ? "checked" : "unchecked"
+            }
+            onPress={() => handleOptionSelect("I am hands-off")}
+            color={COLORS.primary}
           />
         </TouchableOpacity>
         <View style={styles.border2} />

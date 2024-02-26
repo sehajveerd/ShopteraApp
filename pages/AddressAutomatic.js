@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Image, View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { Switch } from "react-native";
+import { COLORS } from "./Colors.js";
 
 const AddressInfoPage = ({ navigation }) => {
   const [address, setAddress] = useState({
@@ -119,7 +120,7 @@ const AddressInfoPage = ({ navigation }) => {
           {
             backgroundColor:
               isAddressConfirmed && isContinueButtonEnabled
-                ? "#064682"
+                ? COLORS.primary
                 : "#E0E0E0",
           },
         ]}
@@ -134,7 +135,7 @@ const AddressInfoPage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
     flex: 1,
     marginLeft: 15,
   },
@@ -177,7 +178,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     paddingHorizontal: "5%",
     marginTop: 75,
-    color: "#064682",
+    color: COLORS.primary,
   },
   addText: {
     fontSize: 13,
@@ -213,7 +214,7 @@ const styles = StyleSheet.create({
     top: 50,
     left: 0,
     right: 0,
-    backgroundColor: "#ffffff",
+    backgroundColor: COLORS.white,
     elevation: 2,
   },
   description: {
@@ -224,7 +225,7 @@ const styles = StyleSheet.create({
     height: 40,
   },
   button: {
-    backgroundColor: "#064682",
+    backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
     marginTop: "0%",
@@ -234,7 +235,7 @@ const styles = StyleSheet.create({
     width: 365,
   },
   buttonText: {
-    color: "#ffffff",
+    color: COLORS.white,
     fontSize: 16,
     fontWeight: "bold",
   },
