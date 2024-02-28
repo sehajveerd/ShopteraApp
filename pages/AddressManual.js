@@ -244,11 +244,9 @@ const styles = StyleSheet.create({
   listView: {
     position: "absolute",
     top: 50,
-    left: 0,
-    right: 0,
     backgroundColor: "#ffffff",
-    elevation: 1,
-    zIndex: 2,
+    elevation: 4,
+    zIndex: 4,
   },
   description: {
     fontSize: 16,
