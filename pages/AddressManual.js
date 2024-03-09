@@ -49,7 +49,7 @@ const AddressInfoPage = ({ navigation }) => {
       </Text>
 
       {/* Address Input */}
-      <View style={styles.inputContainer1}>
+      {/*<View style={styles.inputContainer1}>
         <Text style={styles.addText}>Address Search*</Text>
         <GooglePlacesAutocomplete
           placeholder="Enter Address... 🔍"
@@ -92,7 +92,7 @@ const AddressInfoPage = ({ navigation }) => {
             row: styles.row,
           }}
         />
-      </View>
+      </View>*/}
       <View style={styles.inputContainer}>
         <Text style={styles.addText}>Address Line 1*</Text>
         <TextInput
