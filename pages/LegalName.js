@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.white,
     flex: 1,
-    marginLeft: 15,
   },
   backButton: {
     top: "6%",
@@ -139,12 +138,12 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
-    marginTop: "105%",
-    marginBottom: 5,
-    marginLeft: 7,
+    marginLeft: "5%",
     alignItems: "center",
     justifyContent: "center",
-    width: 365,
+    width: "90%",
+    bottom: 10,
+    position: "absolute",
   },
   buttonText: {
     color: "#BFBFBF",

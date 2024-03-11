@@ -23,7 +23,7 @@ const PhoneNPage = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate("NW")}
+        onPress={() => navigation.navigate("AddressManual")}
         style={{ position: "absolute", left: 20, top: 35 }}
       >
         <Image

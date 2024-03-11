@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.white,
     flex: 1,
-    marginLeft: 15,
     position: "relative",
   },
   addressDisplayContainer: {
@@ -273,10 +272,11 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 13,
     marginTop: "9%",
-    marginLeft: 7,
+    marginLeft: "5%",
     alignItems: "center",
     justifyContent: "center",
-    width: 365,
+    width: "90%",
+    bottom: 20,
   },
   buttonText: {
     color: COLORS.white,

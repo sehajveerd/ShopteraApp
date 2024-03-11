@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.white,
     flex: 1,
-    marginLeft: 15,
   },
   headerText: {
     fontSize: 30,
@@ -134,18 +133,19 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 13,
     marginBottom: 10,
-    marginLeft: 7,
+    marginLeft: "5%",
     alignItems: "center",
     justifyContent: "center",
-    width: 365,
+    width: "90%",
   },
+
   button2: {
     backgroundColor: "#E0E0E0",
     borderRadius: 12,
     padding: 13,
     marginBottom: 10,
-    marginLeft: 7,
-    width: 365,
+    marginLeft: "5%",
+    width: "90%",
     alignItems: "center",
     justifyContent: "center",
   },

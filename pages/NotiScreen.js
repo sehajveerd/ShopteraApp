@@ -1,45 +1,47 @@
-import React from "react";
-import { View, Image, Text, StyleSheet, Font, Dimensions } from "react-native";
-import { TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { RadioButton } from "react-native-paper";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Font,
+} from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { COLORS } from "./Colors.js";
-import { useNavigation } from "@react-navigation/native";
+
+const Stack = createNativeStackNavigator();
 
 const NotiScreen = () => {
-  const navigation = useNavigation();
   return (
-    <View styles={styles.container}>
-      <Text style={styles.text}>Enable push notifications</Text>
-      <Text style={styles.text2}>
-        Unlock a Seamless Experience by Enabling Push Notifications. Receive
-        Real-Time Updates, Investment Opportunities, and Exclusive Alerts. Be
-        the First to Know and Take Control of Your Investment Journey!
-      </Text>
-      <View style={styles.innerContainer}>
-        <TouchableOpacity
-          style={{
-            paddingLeft: 10,
-            paddingRight: 10,
-            paddingTop: 8,
-            paddingBottom: 15,
-            backgroundColor: COLORS.primary,
-            borderRadius: 12,
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: 360,
-            marginLeft: 80,
-            marginRight: 80,
-          }}
-          onPress={() => navigation.navigate("About")}
-        >
-          <Text style={styles.text3}>Enable Notifications</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-        style={[styles.button2, { backgroundColor: "white"}]}
-        onPress={() => navigation.navigate("About")}
-        >
-          <Text style={styles.buttonText2}>Skip</Text>
-        </TouchableOpacity>
+    <View style={styles.container}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.header}>Enable push notifications</Text>
+
+        <Text style={styles.headerDescription}>
+          Unlock a Seamless Experience by Enabling Push Notifications. Receive
+          Real-Time Updates, Investment Opportunities, and Exclusive Alerts. Be
+          the First to Know and Take Control of Your Investment Journey!
+        </Text>
       </View>
+      <TouchableOpacity
+        style={styles.button2}
+        onPress={() => {
+          /* handle button press FOR BACK*/
+        }}
+      >
+        <Text style={styles.button2Text}>Maybe Later</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          navigation.navigate("LegalName");
+        }}
+      >
+        <Text style={styles.buttonText}>Enable Notifications</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -48,41 +50,67 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.white,
     flex: 1,
-    width: "100%",
-    height: "100%",
   },
-  text: {
-    fontFamily: "Red Hat Display",
+
+  header: {
     fontSize: 24,
+    width: "100%",
+    fontWeight: "700",
+    lineHeight: 33.84,
+    paddingHorizontal: "5%",
+    marginTop: 75,
     color: COLORS.secondary,
-    paddingTop: 120,
-    paddingHorizontal: 60,
   },
-  text2: {
-    fontFamily: "Red Hat Display",
-    fontSize: 14,
+
+  headerDescription: {
+    fontSize: 13,
+    width: "100%",
+    paddingHorizontal: "5%",
+    marginTop: 10,
     color: COLORS.secondary,
-    paddingHorizontal: 60,
-    paddingTop: 15,
   },
-  text3: {
-    fontSize: 14,
-    color: COLORS.white,
-    fontFamily: "Poppins",
+
+  bodyText: {
+    top: 45,
+    left: "4%",
   },
-  innerContainer: {
-    flex: 1,
+  button: {
+    backgroundColor: COLORS.primary,
+    borderRadius: 12,
+    padding: 13,
+    marginLeft: "5%",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "90%",
+    bottom: 10,
+    position: "absolute",
   },
-  innerContainer2: {
-    flex: 1,
+
+  button2: {
+    backgroundColor: "#E0E0E0",
+    borderRadius: 12,
+    padding: 13,
+    marginLeft: "5%",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "90%",
+    bottom: 65,
+    position: "absolute",
   },
-  buttonText2: {
-      textAlign: "center",
-      color: COLORS.primary,
-      fontSize: 14,
-      fontFamily: "Poppins",
-      fontWeight: "bold",
-      wordWrap: "break-word",
+  buttonText: {
+    color: "#ffffff",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  button2Text: {
+    color: "#000000",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+
+  headerContainer: {
+    backgroundColor: COLORS.primary,
+    height: "60%",
   },
 });
 export default NotiScreen;

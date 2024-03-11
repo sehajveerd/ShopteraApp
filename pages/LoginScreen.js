@@ -8,11 +8,8 @@ import {
   Font,
 } from "react-native";
 import { COLORS } from "./Colors.js";
-import { useNavigation } from "@react-navigation/native";
-
 
 const LoginScreen = () => {
-  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome!</Text>
@@ -90,7 +87,7 @@ const LoginScreen = () => {
             height: 50,
             width: 300,
           }}
-          onPress={() => navigation.navigate("NotiScreen")}
+          onPress={() => {}}
         >
           <Text
             style={{
