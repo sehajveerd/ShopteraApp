@@ -2,8 +2,10 @@ import React from "react";
 import { View, Image, Text, StyleSheet, Font, Dimensions } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { COLORS } from "./Colors.js";
+import { useNavigation } from "@react-navigation/native";
 
 const NotiScreen = () => {
+  const navigation = useNavigation();
   return (
     <View styles={styles.container}>
       <Text style={styles.text}>Enable push notifications</Text>
@@ -27,9 +29,15 @@ const NotiScreen = () => {
             marginLeft: 80,
             marginRight: 80,
           }}
-          onPress={() => {}}
+          onPress={() => navigation.navigate("About")}
         >
           <Text style={styles.text3}>Enable Notifications</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+        style={[styles.button2, { backgroundColor: "white"}]}
+        onPress={() => navigation.navigate("About")}
+        >
+          <Text style={styles.buttonText2}>Skip</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -67,6 +75,14 @@ const styles = StyleSheet.create({
   },
   innerContainer2: {
     flex: 1,
+  },
+  buttonText2: {
+      textAlign: "center",
+      color: COLORS.primary,
+      fontSize: 14,
+      fontFamily: "Poppins",
+      fontWeight: "bold",
+      wordWrap: "break-word",
   },
 });
 export default NotiScreen;
