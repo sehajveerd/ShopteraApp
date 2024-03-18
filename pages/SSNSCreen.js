@@ -41,7 +41,6 @@ const DOBPage = ({ navigation }) => {
           placeholder="000-000-0000"
           value={SSnumber}
           onChangeText={(text) => setSSnumber(text)}
-          keyboardType="phone-pad"
         />
       </View>
 
