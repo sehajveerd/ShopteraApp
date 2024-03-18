@@ -66,7 +66,6 @@ const PhoneNPage = ({ navigation }) => {
               setPhoneNumber(text);
             }
           }}
-          keyboardType="phone-pad"
           maxLength={10}
         />
       </View>
