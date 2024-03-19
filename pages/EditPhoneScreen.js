@@ -26,16 +26,22 @@ const EditPhoneScreen = ({ modalVisible, setModalVisible, navigation }) => {
       <View style={styles.modalView}>
         <View style={styles.container}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("AddressManual")}
+            onPress={() => setModalVisible(!modalVisible)}
             style={{ position: "absolute", left: 20, top: 35 }}
           >
             <Image
-              source={require("../assets/arrow-left.png")}
+              source={require("../assets/cross.png")}
               style={styles.backArrow}
             />
           </TouchableOpacity>
 
-          <Text style={styles.header}>Enter your phone number</Text>
+          <Text style={styles.header}>Edit Phone Number</Text>
+
+          <Image
+            style={styles.image}
+            source={require("../assets/SettingsPagesDesignLine.png")}
+            alt="building"
+          />
 
           <Text style={styles.flagLabel}>country code</Text>
           <View style={styles.rowContainer}>
@@ -66,22 +72,14 @@ const EditPhoneScreen = ({ modalVisible, setModalVisible, navigation }) => {
             />
           </View>
 
-          {/* Continue button */}
           <TouchableOpacity
             style={phoneNumber ? styles.button : styles.disabledButton}
             onPress={phoneNumber ? handleContinue : () => {}}
             disabled={!phoneNumber}
           >
-            <Text style={styles.buttonText}>Continue</Text>
+            <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
         </View>
-
-        <Pressable
-          style={[styles.button, styles.buttonClose]}
-          onPress={() => setModalVisible(!modalVisible)}
-        >
-          <Text style={styles.textStyle}>Hide Modal</Text>
-        </Pressable>
       </View>
     </View>
   );
@@ -93,6 +91,12 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
     marginTop: 22,
+  },
+  image: {
+    width: 400,
+    height: 100,
+    top: 0,
+    resizeMode: "contain",
   },
   modalView: {
     width: "100%",
@@ -111,11 +115,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
   buttonClose: {
     backgroundColor: "#2196F3",
   },
@@ -130,23 +129,27 @@ const styles = StyleSheet.create({
   },
 
   backArrow: {
-    width: 30,
+    left: 10,
+    bottom: 40,
+    width: 15,
+    height: 15,
     zIndex: 1,
   },
 
   header: {
-    fontSize: 20,
+    fontSize: 15,
     width: "100%",
-    fontWeight: "700",
+    fontWeight: "300",
     paddingHorizontal: "5%",
-    marginTop: 75,
+    bottom: 6,
+    left: 120,
     color: COLORS.primary,
   },
 
   flagLabel: {
     fontSize: 9,
-    marginTop: 228,
-    marginLeft: 38,
+    bottom: 531,
+    left: 38,
     position: "absolute",
     height: 50,
   },
@@ -155,7 +158,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     borderRadius: 12,
     padding: 13,
-    marginLeft: "5%",
+    left: 50,
     alignItems: "center",
     justifyContent: "center",
     width: "90%",
@@ -164,10 +167,10 @@ const styles = StyleSheet.create({
   },
 
   disabledButton: {
-    backgroundColor: "#DCDDE0", // Use a color indicating the button is disabled
+    backgroundColor: "#DCDDE0",
     borderRadius: 12,
     padding: 13,
-    marginLeft: "5%",
+    left: 50,
     alignItems: "center",
     justifyContent: "center",
     width: "90%",
@@ -183,16 +186,15 @@ const styles = StyleSheet.create({
 
   rowContainer: {
     height: 50,
+    width: 340,
+    top: 0,
     flexDirection: "row",
     alignItems: "center",
-    marginLeft: "5%",
-    marginBottom: 10,
+    left: 30,
     paddingHorizontal: "5%",
-    marginTop: "5%",
     borderWidth: 2,
     borderRadius: 8,
     borderColor: "#DCDDE0",
-    width: "90%",
   },
 
   line: {

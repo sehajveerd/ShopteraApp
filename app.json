@@ -28,7 +28,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "493b6a59-5914-42e7-97d8-ebd723def72a"
+        "projectId": "d46f9902-1a43-43f2-ad52-803c06e52afd"
       }
     },
     "owner": "sophtera",
@@ -36,7 +36,7 @@
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/493b6a59-5914-42e7-97d8-ebd723def72a"
+      "url": "https://u.expo.dev/d46f9902-1a43-43f2-ad52-803c06e52afd"
     }
   }
 }

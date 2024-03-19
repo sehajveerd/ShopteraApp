@@ -22,6 +22,7 @@ import AddressManual from "./pages/AddressManual";
 import AddressAuto from "./pages/AddressAutomatic";
 import AboutUs from "./pages/AboutUsScreen";
 import Setting from "./pages/SettingScreen";
+import PersonalInfo from "./pages/PersonalInfo";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,9 @@ const Stack = createNativeStackNavigator();
 //scawsd
 //cw
 export default function App() {
+  return <PersonalInfo />;
+
+  /*
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -38,40 +42,31 @@ export default function App() {
           headerShown: false,
         }}
       >
+        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="SignUpProcess" component={SignUpProcess} />
         <Stack.Screen name="Setting" component={Setting} />
+        <Stack.Screen name="PersonalInfo" component={PersonalInfo} />
+        <Stack.Screen name="NotiScreen" component={NotiScreen} />
+        <Stack.Screen name="About" component={AboutUs} />
+        <Stack.Screen name="Q1" component={Questionnaire1} />
+        <Stack.Screen name="Q2" component={Questionnaire2} />
+        <Stack.Screen name="Q3" component={Questionnaire3} />
+        <Stack.Screen name="Q4" component={Questionnaire4} />
+        <Stack.Screen
+          name="RecapOfPreferences"
+          component={RecapOfPreferences}
+        />
+        <Stack.Screen name="LegalName" component={LegalName} />
+        <Stack.Screen name="Residence" component={Residence} />
+        <Stack.Screen name="AddressManual" component={AddressManual} />
+        <Stack.Screen name="PN" component={PhoneNumber} />
+        <Stack.Screen name="DOB" component={DateOfBirth} />
+        <Stack.Screen name="SSN" component={SSN} />
+        <Stack.Screen name="NW" component={NetWorth} />
       </Stack.Navigator>
     </NavigationContainer>
   );
-  /*
-return (
-  <NavigationContainer>
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-      <Stack.Screen name="LoginScreen" component={LoginScreen} />
-      <Stack.Screen name="SignUpProcess" component={SignUpProcess} />
-      <Stack.Screen name="NotiScreen" component={NotiScreen} />
-      <Stack.Screen name="About" component={AboutUs} />
-      <Stack.Screen name="Q1" component={Questionnaire1} />
-      <Stack.Screen name="Q2" component={Questionnaire2} />
-      <Stack.Screen name="Q3" component={Questionnaire3} />
-      <Stack.Screen name="Q4" component={Questionnaire4} />
-      <Stack.Screen
-        name="RecapOfPreferences"
-        component={RecapOfPreferences}
-      />
-      <Stack.Screen name="LegalName" component={LegalName} />
-      <Stack.Screen name="Residence" component={Residence} />
-      <Stack.Screen name="AddressManual" component={AddressManual} />
-      <Stack.Screen name="PN" component={PhoneNumber} />
-      <Stack.Screen name="DOB" component={DateOfBirth} />
-      <Stack.Screen name="SSN" component={SSN} />
-      <Stack.Screen name="NW" component={NetWorth} />
-    </Stack.Navigator>
-  </NavigationContainer>
-);
-*/
+
+  */
 }
