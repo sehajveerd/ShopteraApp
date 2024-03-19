@@ -25,15 +25,15 @@ const EditPhoneScreen = ({ modalVisible, setModalVisible, navigation }) => {
     <View style={styles.centeredView}>
       <View style={styles.modalView}>
         <View style={styles.container}>
-          <TouchableOpacity
+          <Pressable
             onPress={() => setModalVisible(!modalVisible)}
-            style={{ position: "absolute", left: 20, top: 35 }}
+            style={{ position: "absolute", left: 20, top: 35, zIndex: 1 }}
           >
             <Image
               source={require("../assets/cross.png")}
               style={styles.backArrow}
             />
-          </TouchableOpacity>
+          </Pressable>
 
           <Text style={styles.header}>Edit Phone Number</Text>
 
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   image: {
     width: 400,
     height: 100,
-    top: 0,
+    bottom: 32,
     resizeMode: "contain",
   },
   modalView: {
@@ -148,8 +148,8 @@ const styles = StyleSheet.create({
 
   flagLabel: {
     fontSize: 9,
-    bottom: 531,
-    left: 38,
+    bottom: 561,
+    left: 45,
     position: "absolute",
     height: 50,
   },
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   rowContainer: {
     height: 50,
     width: 340,
-    top: 0,
+    bottom: 30,
     flexDirection: "row",
     alignItems: "center",
     left: 30,
