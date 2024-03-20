@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import SplashScreen from "./pages/SplashScreen";
 import SignUpProcess from "./pages/SignUpProcess";
 import Questionnaire1 from "./pages/Questionnaire1";
@@ -18,23 +18,35 @@ import NetWorth from "./pages/NetWorthScreen";
 import SSN from "./pages/SSNSCreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
 import AddressManual from "./pages/AddressManual";
 import AddressAuto from "./pages/AddressAutomatic";
 import AboutUs from "./pages/AboutUsScreen";
 import Setting from "./pages/SettingScreen";
 import PersonalInfo from "./pages/PersonalInfo";
+import HomeScreen from "./pages/HomeScreen";
+import InvestScreen from "./pages/InvestScreen";
+import LearnScreen from "./pages/LearnScreen";
+import CommunityScreen from "./pages/CommunityScreen";
+import Tabs from "./pages/Tabs";
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-/*export default function App() {
-  return <AddressManual/>;
-}*/
-//scawsd
-//cw
+const HomeIcon = require("./assets/HomeIcon.png");
+const HomeOutlineIcon = require("./assets/OutlinedHome.png");
+
+const InvestIcon = require("./assets/Invest (1).png");
+const InvestOutlineIcon = require("./assets/Invest.png");
+
+const LearnIcon = require("./assets/Learn (1).png");
+const LearnOutlineIcon = require("./assets/Learn.png");
+
+const CommunityIcon = require("./assets/Community (1).png");
+const CommunityOutlineIcon = require("./assets/Community.png");
+
 export default function App() {
-  return <PersonalInfo />;
-
-  /*
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -43,6 +55,7 @@ export default function App() {
         }}
       >
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+        <Stack.Screen name="Tabs" component={Tabs} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="SignUpProcess" component={SignUpProcess} />
         <Stack.Screen name="Setting" component={Setting} />
@@ -67,6 +80,4 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-
-  */
 }

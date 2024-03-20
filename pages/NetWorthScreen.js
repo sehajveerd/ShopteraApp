@@ -20,7 +20,7 @@ const NetWorth = ({ navigation }) => {
   const handleContinue = () => {
     // Handle the continue logic here
     console.log("Continue button pressed with option:", selectedOption);
-    navigation.navigate("PN");
+    navigation.navigate("Tabs");
   };
 
   return (
