@@ -22,14 +22,14 @@ import AddressManual from "./pages/AddressManual";
 import AddressAuto from "./pages/AddressAutomatic";
 import AboutUs from "./pages/AboutUsScreen";
 import Setting from "./pages/SettingScreen";
+import ConfirmNumber from "./pages/ConfirmPhone1";
+import ConfirmNumberSuccess from "./pages/ConfirmPhoneSuccess";
 
 const Stack = createNativeStackNavigator();
 
-/*export default function App() {
-  return <AddressManual/>;
-}*/
-//scawsd
-//cw
+export default function App() {
+  return <ConfirmNumber/>;
+/*
 export default function App() {
   return (
     <NavigationContainer>
@@ -38,10 +38,11 @@ export default function App() {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="Setting" component={Setting} />
+        <Stack.Screen name="PhoneNumber" component={PhoneNumber} />
       </Stack.Navigator>
     </NavigationContainer>
   );
+  /*
   /*
 return (
   <NavigationContainer>
