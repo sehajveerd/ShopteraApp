@@ -49,6 +49,8 @@ const CommunityIcon = require("./assets/Community (1).png");
 const CommunityOutlineIcon = require("./assets/Community.png");
 
 export default function App() {
+  return <AddressManual />;
+  /*
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -81,5 +83,5 @@ export default function App() {
         <Stack.Screen name="NW" component={NetWorth} />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+  );*/
 }
