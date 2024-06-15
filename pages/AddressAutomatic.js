@@ -81,7 +81,7 @@ const AddressInfoPage = ({ navigation }) => {
           }}
           fetchDetails={true}
           query={{
-            key: "AIzaSyBm36yE3Yte9FJX6s8EbhBDBLRtajQ8BIE",
+            key: "",
             language: "en",
           }}
           styles={{
